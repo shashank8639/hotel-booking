@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+logging:
+  level:
+    com.hotelbooking: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    # Trace Spring Security filter chain + our post-JWT debug filter
+    org.springframework.security: DEBUG
+    com.hotelbooking.security.SecurityFilterTraceFilter: DEBUG
+    com.hotelbooking.security.AdminOnlyDemoService: DEBUG
