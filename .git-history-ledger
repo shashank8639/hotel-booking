@@ -1,1 +1,2 @@
 2026-05-05T11:06:53	0	docs(readme): add learning-path overview for module progression
+2026-05-05T11:50:02	1	chore(gitignore): ignore target, node_modules, and local env files
