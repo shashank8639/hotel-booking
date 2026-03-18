@@ -3,3 +3,4 @@
 2026-05-05T17:23:03	2	feat(cors): allow local Vite origin for API development
 2026-05-05T19:02:07	3	refactor(config): split application-dev and application-prod profiles
 2026-05-05T19:14:54	4	refactor(config): split application-dev and application-prod profiles
+2026-05-05T19:38:19	5	chore(frontend): add base App shell and router placeholder
