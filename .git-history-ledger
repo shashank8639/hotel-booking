@@ -1,3 +1,5 @@
 2026-05-05T11:06:53	0	docs(readme): add learning-path overview for module progression
 2026-05-05T11:50:02	1	chore(gitignore): ignore target, node_modules, and local env files
 2026-05-05T17:23:03	2	feat(cors): allow local Vite origin for API development
+2026-05-05T19:02:07	3	refactor(config): split application-dev and application-prod profiles
+2026-05-05T19:14:54	4	refactor(config): split application-dev and application-prod profiles
