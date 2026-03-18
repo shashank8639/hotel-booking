@@ -1,0 +1,57 @@
+# =============================================================================
+# Production profile — activate with: --spring.profiles.active=prod
+#   or SPRING_PROFILES_ACTIVE=prod
+# =============================================================================
+#
+# ddl-auto: validate
+#   Hibernate only CHECKS that entities match the existing DB schema.
+#   It does NOT create or alter tables. Schema changes must come from
+#   Flyway/SQL migrations (safer for production).
+#
+# show-sql: false
+#   Do not log every SQL statement (noise + possible PII leakage in logs).
+#
+# context-path: /api/v1
+#   Versions the public API surface. Controllers stay as @RequestMapping("/guests")
+#   but the full URL becomes /api/v1/guests (see docs/FOUNDATION_PRACTICE.md).
+# =============================================================================
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+  datasource:
+    # Prefer env vars in real deployments; no createDatabaseIfNotExist in prod.
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT:3306}/${DB_NAME:hotel_booking}?useSSL=true&allowPublicKeyRetrieval=false&serverTimezone=UTC&connectionCollation=utf8mb4_unicode_ci
+
+server:
+  servlet:
+    context-path: /api/v1
+
+logging:
+  level:
+    root: INFO
+    com.hotelbooking: INFO
+    org.hibernate.SQL: WARN
+    org.springframework.security: WARN
+
+app:
+  name: Hotel Booking System
+  version: ${APP_VERSION:0.0.1-SNAPSHOT}
+  razorpay:
+    mock-enabled: false
+  cors:
+    allowed-origins:
+      - ${APP_CORS_ORIGIN:https://stayfinder.example}
+
+# Hide OpenAPI in production (Module 15 practice). Explore APIs in dev/stage only.
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
