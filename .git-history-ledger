@@ -5,3 +5,4 @@
 2026-05-05T19:14:54	4	refactor(config): split application-dev and application-prod profiles
 2026-05-05T19:38:19	5	chore(frontend): add base App shell and router placeholder
 2026-05-06T09:23:46	6	chore(gitignore): ignore target, node_modules, and local env files
+2026-05-06T13:37:23	7	chore(frontend): add base App shell and router placeholder
