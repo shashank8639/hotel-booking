@@ -9,3 +9,4 @@
 2026-05-06T15:30:09	8	chore(repo): scaffold Spring Boot 3 and React Vite workspaces
 2026-05-06T16:56:35	9	docs(architecture): document layered package layout
 2026-05-06T18:54:16	10	refactor(config): split application-dev and application-prod profiles
+2026-05-07T09:13:37	11	docs(architecture): document layered package layout
