@@ -11,3 +11,4 @@
 2026-05-06T18:54:16	10	refactor(config): split application-dev and application-prod profiles
 2026-05-07T09:13:37	11	docs(architecture): document layered package layout
 2026-05-07T12:06:57	12	feat(cors): allow local Vite origin for API development
+2026-05-07T12:46:01	13	chore(frontend): add base App shell and router placeholder
