@@ -13,3 +13,4 @@
 2026-05-07T12:06:57	12	feat(cors): allow local Vite origin for API development
 2026-05-07T12:46:01	13	chore(frontend): add base App shell and router placeholder
 2026-05-07T13:43:57	14	docs(readme): add learning-path overview for module progression
+2026-05-07T15:15:41	15	chore(gitignore): ignore target, node_modules, and local env files
