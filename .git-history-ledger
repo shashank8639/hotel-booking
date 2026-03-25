@@ -16,3 +16,4 @@
 2026-05-07T15:15:41	15	chore(gitignore): ignore target, node_modules, and local env files
 2026-05-07T18:19:51	16	docs(readme): add learning-path overview for module progression
 2026-05-07T19:11:31	17	docs(readme): add learning-path overview for module progression
+2026-05-08T09:25:30	18	feat(cors): allow local Vite origin for API development
