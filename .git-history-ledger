@@ -20,3 +20,5 @@
 2026-05-08T09:39:20	19	chore(gitignore): ignore target, node_modules, and local env files
 2026-05-08T09:45:14	20	docs(architecture): document layered package layout
 2026-05-08T13:13:50	21	docs(architecture): document layered package layout
+2026-05-08T13:25:39	22	chore(repo): scaffold Spring Boot 3 and React Vite workspaces
+2026-05-08T16:46:35	23	chore(repo): scaffold Spring Boot 3 and React Vite workspaces
