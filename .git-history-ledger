@@ -22,3 +22,4 @@
 2026-05-08T13:13:50	21	docs(architecture): document layered package layout
 2026-05-08T13:25:39	22	chore(repo): scaffold Spring Boot 3 and React Vite workspaces
 2026-05-08T16:46:35	23	chore(repo): scaffold Spring Boot 3 and React Vite workspaces
+2026-05-08T17:40:52	24	feat(cors): allow local Vite origin for API development
