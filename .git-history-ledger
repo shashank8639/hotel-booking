@@ -25,3 +25,5 @@
 2026-05-08T17:40:52	24	feat(cors): allow local Vite origin for API development
 2026-05-08T18:30:34	25	docs(readme): add learning-path overview for module progression
 2026-05-09T11:53:42	26	chore(repo): scaffold Spring Boot 3 and React Vite workspaces
+2026-05-09T13:19:00	27	refactor(config): split application-dev and application-prod profiles
+2026-05-09T14:28:40	28	chore(repo): scaffold Spring Boot 3 and React Vite workspaces
