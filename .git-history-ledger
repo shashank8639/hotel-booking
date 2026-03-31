@@ -35,3 +35,5 @@
 2026-05-11T12:15:53	34	feat(jpa): add optimistic locking version on Booking
 2026-05-11T13:52:33	35	docs(database): explain ER decisions and soft-delete rooms
 2026-05-11T17:00:27	36	docs(database): explain ER decisions and soft-delete rooms
+2026-05-11T18:45:52	37	refactor(repo): add derived query methods for guest email lookup
+2026-05-11T18:46:19	38	feat(db): seed sample data in V2 migration
