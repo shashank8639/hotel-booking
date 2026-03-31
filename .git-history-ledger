@@ -31,3 +31,7 @@
 2026-05-09T16:05:35	30	feat(cors): allow local Vite origin for API development
 2026-05-10T13:17:30	31	chore(gitignore): ignore target, node_modules, and local env files
 2026-05-10T13:17:56	32	chore(repo): scaffold Spring Boot 3 and React Vite workspaces
+2026-05-11T10:27:14	33	feat(jpa): add optimistic locking version on Booking
+2026-05-11T12:15:53	34	feat(jpa): add optimistic locking version on Booking
+2026-05-11T13:52:33	35	docs(database): explain ER decisions and soft-delete rooms
+2026-05-11T17:00:27	36	docs(database): explain ER decisions and soft-delete rooms
