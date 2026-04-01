@@ -39,3 +39,5 @@
 2026-05-11T18:46:19	38	feat(db): seed sample data in V2 migration
 2026-05-11T19:25:39	39	feat(jpa): add optimistic locking version on Booking
 2026-05-11T19:48:54	40	docs(database): explain ER decisions and soft-delete rooms
+2026-05-12T10:09:28	41	feat(entity): link Room to Hotel with lazy ManyToOne
+2026-05-12T11:45:32	42	fix(db): align room unique key to hotel_id plus room_number
