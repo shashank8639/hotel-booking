@@ -47,3 +47,6 @@
 2026-05-13T09:48:15	46	feat(db): seed sample data in V2 migration
 2026-05-13T10:35:30	47	feat(db): add V1 core schema for guests rooms bookings payments
 2026-05-13T12:11:34	48	feat(db): add V1 core schema for guests rooms bookings payments
+2026-05-13T12:40:32	49	fix(db): align room unique key to hotel_id plus room_number
+2026-05-13T14:00:40	50	feat(entity): link Room to Hotel with lazy ManyToOne
+2026-05-13T16:40:40	51	feat(entity): link Room to Hotel with lazy ManyToOne
