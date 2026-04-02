@@ -44,3 +44,6 @@
 2026-05-12T17:57:12	43	feat(db): seed sample data in V2 migration
 2026-05-12T21:36:04	44	feat(jpa): add optimistic locking version on Booking
 2026-05-12T21:40:17	45	feat(jpa): add optimistic locking version on Booking
+2026-05-13T09:48:15	46	feat(db): seed sample data in V2 migration
+2026-05-13T10:35:30	47	feat(db): add V1 core schema for guests rooms bookings payments
+2026-05-13T12:11:34	48	feat(db): add V1 core schema for guests rooms bookings payments

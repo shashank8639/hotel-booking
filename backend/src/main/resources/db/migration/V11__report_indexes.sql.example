@@ -1,0 +1,32 @@
+-- =============================================================================
+-- Module 9 practice — suggested reporting indexes (NOT applied automatically)
+-- =============================================================================
+-- Filename ends with .sql.example so Flyway ignores it while migrations stay frozen.
+-- When ready to apply: rename to V11__report_indexes.sql (next free version) and run migrate.
+--
+-- Why these indexes:
+--   payments(status, paid_at)     → revenue-by-day / SUCCESS range scans
+--   payments(status, created_at)  → FAILED/PENDING status reports (often no paid_at)
+--   bookings(created_at)          → booking analytics by create window
+--   bookings(check_in_date)       → check-in series / occupancy overlap filters
+--   bookings(guest_id, created_at)→ top-guest GROUP BY + HAVING
+--   rooms(status)                 → dashboard occupancy snapshot counts
+-- =============================================================================
+
+-- CREATE INDEX idx_payments_status_paid_at
+--     ON payments (status, paid_at);
+--
+-- CREATE INDEX idx_payments_status_created_at
+--     ON payments (status, created_at);
+--
+-- CREATE INDEX idx_bookings_created_at
+--     ON bookings (created_at);
+--
+-- CREATE INDEX idx_bookings_check_in_date
+--     ON bookings (check_in_date);
+--
+-- CREATE INDEX idx_bookings_guest_created
+--     ON bookings (guest_id, created_at);
+--
+-- CREATE INDEX idx_rooms_status
+--     ON rooms (status);
