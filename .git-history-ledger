@@ -50,3 +50,5 @@
 2026-05-13T12:40:32	49	fix(db): align room unique key to hotel_id plus room_number
 2026-05-13T14:00:40	50	feat(entity): link Room to Hotel with lazy ManyToOne
 2026-05-13T16:40:40	51	feat(entity): link Room to Hotel with lazy ManyToOne
+2026-05-13T17:32:36	52	docs(database): explain ER decisions and soft-delete rooms
+2026-05-13T19:55:08	53	feat(db): add V1 core schema for guests rooms bookings payments
