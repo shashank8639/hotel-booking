@@ -52,3 +52,5 @@
 2026-05-13T16:40:40	51	feat(entity): link Room to Hotel with lazy ManyToOne
 2026-05-13T17:32:36	52	docs(database): explain ER decisions and soft-delete rooms
 2026-05-13T19:55:08	53	feat(db): add V1 core schema for guests rooms bookings payments
+2026-05-14T09:19:41	54	feat(db): introduce geo and hotels tables for multi-hotel catalog
+2026-05-14T16:59:43	55	feat(db): add V1 core schema for guests rooms bookings payments
