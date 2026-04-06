@@ -62,3 +62,5 @@
 2026-05-15T10:31:23	61	feat(db): seed sample data in V2 migration
 2026-05-15T14:59:47	62	feat(db): seed sample data in V2 migration
 2026-05-15T18:18:26	63	refactor(repo): add derived query methods for guest email lookup
+2026-05-15T19:43:55	64	feat(db): introduce geo and hotels tables for multi-hotel catalog
+2026-05-15T21:38:07	65	docs(database): explain ER decisions and soft-delete rooms
