@@ -56,3 +56,6 @@
 2026-05-14T16:59:43	55	feat(db): add V1 core schema for guests rooms bookings payments
 2026-05-14T17:03:50	56	feat(db): seed sample data in V2 migration
 2026-05-14T18:20:02	57	feat(jpa): add optimistic locking version on Booking
+2026-05-14T18:40:07	58	feat(entity): link Room to Hotel with lazy ManyToOne
+2026-05-14T21:05:37	59	docs(database): explain ER decisions and soft-delete rooms
+2026-05-14T21:22:03	60	docs(database): explain ER decisions and soft-delete rooms
