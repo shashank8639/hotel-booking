@@ -59,3 +59,6 @@
 2026-05-14T18:40:07	58	feat(entity): link Room to Hotel with lazy ManyToOne
 2026-05-14T21:05:37	59	docs(database): explain ER decisions and soft-delete rooms
 2026-05-14T21:22:03	60	docs(database): explain ER decisions and soft-delete rooms
+2026-05-15T10:31:23	61	feat(db): seed sample data in V2 migration
+2026-05-15T14:59:47	62	feat(db): seed sample data in V2 migration
+2026-05-15T18:18:26	63	refactor(repo): add derived query methods for guest email lookup
