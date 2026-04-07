@@ -66,3 +66,5 @@
 2026-05-15T21:38:07	65	docs(database): explain ER decisions and soft-delete rooms
 2026-05-15T21:52:24	66	feat(entity): link Room to Hotel with lazy ManyToOne
 2026-05-16T10:17:04	67	docs(database): explain ER decisions and soft-delete rooms
+2026-05-16T12:15:46	68	fix(db): align room unique key to hotel_id plus room_number
+2026-05-16T13:32:44	69	feat(db): introduce geo and hotels tables for multi-hotel catalog
