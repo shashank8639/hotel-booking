@@ -70,3 +70,5 @@
 2026-05-16T13:32:44	69	feat(db): introduce geo and hotels tables for multi-hotel catalog
 2026-05-16T13:40:24	70	feat(entity): link Room to Hotel with lazy ManyToOne
 2026-05-16T19:15:23	71	feat(db): add V1 core schema for guests rooms bookings payments
+2026-05-17T12:38:45	72	fix(security): return JSON 401/403 from authentication entry points
+2026-05-17T18:30:46	73	feat(auth): issue access and refresh tokens on login
