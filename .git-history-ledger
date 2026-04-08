@@ -75,3 +75,5 @@
 2026-05-18T11:28:50	74	feat(auth): register and login endpoints with BCrypt passwords
 2026-05-18T12:06:43	75	feat(auth): register and login endpoints with BCrypt passwords
 2026-05-18T16:34:39	76	fix(security): return JSON 401/403 from authentication entry points
+2026-05-18T17:29:10	77	test(security): cover JWT claim extraction and password encoding
+2026-05-18T17:37:01	78	feat(security): map UserRole ADMIN CUSTOMER HOTEL_OWNER
