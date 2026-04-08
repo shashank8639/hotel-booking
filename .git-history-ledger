@@ -72,3 +72,6 @@
 2026-05-16T19:15:23	71	feat(db): add V1 core schema for guests rooms bookings payments
 2026-05-17T12:38:45	72	fix(security): return JSON 401/403 from authentication entry points
 2026-05-17T18:30:46	73	feat(auth): issue access and refresh tokens on login
+2026-05-18T11:28:50	74	feat(auth): register and login endpoints with BCrypt passwords
+2026-05-18T12:06:43	75	feat(auth): register and login endpoints with BCrypt passwords
+2026-05-18T16:34:39	76	fix(security): return JSON 401/403 from authentication entry points
