@@ -77,3 +77,5 @@
 2026-05-18T16:34:39	76	fix(security): return JSON 401/403 from authentication entry points
 2026-05-18T17:29:10	77	test(security): cover JWT claim extraction and password encoding
 2026-05-18T17:37:01	78	feat(security): map UserRole ADMIN CUSTOMER HOTEL_OWNER
+2026-05-19T11:17:32	79	fix(security): return JSON 401/403 from authentication entry points
+2026-05-19T11:28:47	80	docs(security): walk through filter chain and RBAC matchers
