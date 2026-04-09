@@ -79,3 +79,7 @@
 2026-05-18T17:37:01	78	feat(security): map UserRole ADMIN CUSTOMER HOTEL_OWNER
 2026-05-19T11:17:32	79	fix(security): return JSON 401/403 from authentication entry points
 2026-05-19T11:28:47	80	docs(security): walk through filter chain and RBAC matchers
+2026-05-19T17:03:45	81	feat(auth): issue access and refresh tokens on login
+2026-05-19T17:17:54	82	feat(auth): issue access and refresh tokens on login
+2026-05-19T18:54:30	83	fix(security): return JSON 401/403 from authentication entry points
+2026-05-19T20:00:17	84	feat(security): map UserRole ADMIN CUSTOMER HOTEL_OWNER
