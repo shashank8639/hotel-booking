@@ -90,3 +90,5 @@
 2026-05-20T17:02:34	89	feat(auth): issue access and refresh tokens on login
 2026-05-20T18:07:09	90	feat(auth): password reset token flow with expiry
 2026-05-20T19:55:46	91	feat(auth): issue access and refresh tokens on login
+2026-05-20T21:55:32	92	feat(auth): register and login endpoints with BCrypt passwords
+2026-05-21T10:53:16	93	test(security): cover JWT claim extraction and password encoding
