@@ -94,3 +94,5 @@
 2026-05-21T10:53:16	93	test(security): cover JWT claim extraction and password encoding
 2026-05-21T13:38:49	94	feat(auth): password reset token flow with expiry
 2026-05-21T14:23:36	95	feat(security): add BookingOwnership SpEL checks for IDOR protection
+2026-05-21T15:21:05	96	docs(security): walk through filter chain and RBAC matchers
+2026-05-21T17:00:45	97	feat(auth): password reset token flow with expiry
