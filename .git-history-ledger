@@ -92,3 +92,5 @@
 2026-05-20T19:55:46	91	feat(auth): issue access and refresh tokens on login
 2026-05-20T21:55:32	92	feat(auth): register and login endpoints with BCrypt passwords
 2026-05-21T10:53:16	93	test(security): cover JWT claim extraction and password encoding
+2026-05-21T13:38:49	94	feat(auth): password reset token flow with expiry
+2026-05-21T14:23:36	95	feat(security): add BookingOwnership SpEL checks for IDOR protection
