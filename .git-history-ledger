@@ -98,3 +98,5 @@
 2026-05-21T17:00:45	97	feat(auth): password reset token flow with expiry
 2026-05-21T19:14:30	98	docs(security): walk through filter chain and RBAC matchers
 2026-05-21T21:01:34	99	feat(security): implement JwtAuthenticationFilter in the chain
+2026-05-22T14:06:57	100	feat(auth): issue access and refresh tokens on login
+2026-05-22T15:18:21	101	feat(security): implement JwtAuthenticationFilter in the chain
