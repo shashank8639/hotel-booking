@@ -102,3 +102,6 @@
 2026-05-22T15:18:21	101	feat(security): implement JwtAuthenticationFilter in the chain
 2026-05-22T15:55:52	102	feat(auth): register and login endpoints with BCrypt passwords
 2026-05-22T16:17:06	103	test(security): cover JWT claim extraction and password encoding
+2026-05-22T17:51:48	104	docs(security): walk through filter chain and RBAC matchers
+2026-05-22T17:57:54	105	feat(auth): issue access and refresh tokens on login
+2026-05-22T18:42:23	106	feat(auth): issue access and refresh tokens on login
