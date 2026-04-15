@@ -105,3 +105,5 @@
 2026-05-22T17:51:48	104	docs(security): walk through filter chain and RBAC matchers
 2026-05-22T17:57:54	105	feat(auth): issue access and refresh tokens on login
 2026-05-22T18:42:23	106	feat(auth): issue access and refresh tokens on login
+2026-05-22T21:02:51	107	feat(security): implement JwtAuthenticationFilter in the chain
+2026-05-23T09:52:36	108	feat(guest): search by email phone and partial name
