@@ -109,3 +109,5 @@
 2026-05-23T09:52:36	108	feat(guest): search by email phone and partial name
 2026-05-23T18:20:54	109	refactor(guest): MapStruct mapper for request response DTOs
 2026-05-23T19:10:03	110	docs(guests): guided tour of Guest entity vs User account
+2026-05-23T20:16:46	111	feat(guest): CRUD service with duplicate email and phone validation
+2026-05-23T21:58:57	112	feat(api): expose GuestController with pagination
