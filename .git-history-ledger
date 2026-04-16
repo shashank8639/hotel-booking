@@ -113,3 +113,5 @@
 2026-05-23T21:58:57	112	feat(api): expose GuestController with pagination
 2026-05-25T09:52:54	113	refactor(guest): MapStruct mapper for request response DTOs
 2026-05-25T12:04:50	114	fix(guest): prevent delete when bookings still reference guest
+2026-05-25T13:48:45	115	docs(guests): guided tour of Guest entity vs User account
+2026-05-25T14:17:06	116	test(guest): unit-test create update and delete guards
