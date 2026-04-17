@@ -115,3 +115,5 @@
 2026-05-25T12:04:50	114	fix(guest): prevent delete when bookings still reference guest
 2026-05-25T13:48:45	115	docs(guests): guided tour of Guest entity vs User account
 2026-05-25T14:17:06	116	test(guest): unit-test create update and delete guards
+2026-05-25T14:23:42	117	docs(guests): guided tour of Guest entity vs User account
+2026-05-25T15:08:26	118	feat(guest): search by email phone and partial name
