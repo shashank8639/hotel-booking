@@ -119,3 +119,6 @@
 2026-05-25T15:08:26	118	feat(guest): search by email phone and partial name
 2026-05-25T17:02:12	119	test(guest): unit-test create update and delete guards
 2026-05-26T11:52:50	120	refactor(guest): MapStruct mapper for request response DTOs
+2026-05-26T13:30:59	121	docs(guests): guided tour of Guest entity vs User account
+2026-05-26T16:37:50	122	fix(guest): prevent delete when bookings still reference guest
+2026-05-26T16:41:55	123	fix(guest): prevent delete when bookings still reference guest
