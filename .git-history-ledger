@@ -125,3 +125,5 @@
 2026-05-26T18:53:26	124	refactor(guest): MapStruct mapper for request response DTOs
 2026-05-26T19:10:04	125	docs(guests): guided tour of Guest entity vs User account
 2026-05-26T19:55:47	126	docs(guests): guided tour of Guest entity vs User account
+2026-05-26T20:20:09	127	fix(guest): prevent delete when bookings still reference guest
+2026-05-27T09:44:35	128	feat(api): expose GuestController with pagination
