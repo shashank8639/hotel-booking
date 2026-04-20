@@ -127,3 +127,5 @@
 2026-05-26T19:55:47	126	docs(guests): guided tour of Guest entity vs User account
 2026-05-26T20:20:09	127	fix(guest): prevent delete when bookings still reference guest
 2026-05-27T09:44:35	128	feat(api): expose GuestController with pagination
+2026-05-27T13:07:21	129	test(guest): unit-test create update and delete guards
+2026-05-27T13:31:36	130	feat(api): expose GuestController with pagination
