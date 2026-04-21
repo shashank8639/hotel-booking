@@ -136,3 +136,5 @@
 2026-05-28T09:27:11	135	feat(guest): search by email phone and partial name
 2026-05-28T13:06:06	136	fix(guest): prevent delete when bookings still reference guest
 2026-05-28T14:38:24	137	docs(guests): guided tour of Guest entity vs User account
+2026-05-28T17:22:38	138	fix(guest): prevent delete when bookings still reference guest
+2026-05-28T21:43:54	139	feat(guest): search by email phone and partial name
