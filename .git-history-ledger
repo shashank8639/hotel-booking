@@ -133,3 +133,6 @@
 2026-05-27T17:19:47	132	feat(guest): CRUD service with duplicate email and phone validation
 2026-05-27T17:44:20	133	feat(api): expose GuestController with pagination
 2026-05-27T21:29:35	134	docs(guests): guided tour of Guest entity vs User account
+2026-05-28T09:27:11	135	feat(guest): search by email phone and partial name
+2026-05-28T13:06:06	136	fix(guest): prevent delete when bookings still reference guest
+2026-05-28T14:38:24	137	docs(guests): guided tour of Guest entity vs User account
