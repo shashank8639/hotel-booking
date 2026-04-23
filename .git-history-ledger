@@ -140,3 +140,5 @@
 2026-05-28T21:43:54	139	feat(guest): search by email phone and partial name
 2026-05-29T09:29:46	140	feat(room): image metadata association for gallery UI
 2026-05-29T10:13:27	141	test(room): cover availability and status transitions
+2026-05-29T10:26:30	142	feat(room): public catalog search with filters and pagination
+2026-05-29T10:31:26	143	feat(room): image metadata association for gallery UI
