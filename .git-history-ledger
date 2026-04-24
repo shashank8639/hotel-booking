@@ -144,3 +144,5 @@
 2026-05-29T10:31:26	143	feat(room): image metadata association for gallery UI
 2026-05-29T15:24:06	144	feat(room): seasonal pricing entity and effective price helper
 2026-05-30T10:56:18	145	feat(room): admin CRUD pricing and soft-delete support
+2026-05-30T12:39:20	146	feat(room): seasonal pricing entity and effective price helper
+2026-05-30T13:24:25	147	refactor(room): repository lock mode for booking integration
