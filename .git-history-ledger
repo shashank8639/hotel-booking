@@ -150,3 +150,7 @@
 2026-05-30T16:21:37	149	feat(room): seasonal pricing entity and effective price helper
 2026-05-30T20:44:05	150	feat(room): image metadata association for gallery UI
 2026-06-01T10:05:16	151	docs(rooms): document RoomStatus vs BookingStatus
+2026-06-01T10:15:43	152	feat(room): public catalog search with filters and pagination
+2026-06-01T10:22:07	153	feat(room): public catalog search with filters and pagination
+2026-06-01T10:53:47	154	feat(room): public catalog search with filters and pagination
+2026-06-01T11:35:38	155	feat(room): image metadata association for gallery UI
