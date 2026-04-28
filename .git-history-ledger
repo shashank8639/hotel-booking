@@ -154,3 +154,5 @@
 2026-06-01T10:22:07	153	feat(room): public catalog search with filters and pagination
 2026-06-01T10:53:47	154	feat(room): public catalog search with filters and pagination
 2026-06-01T11:35:38	155	feat(room): image metadata association for gallery UI
+2026-06-01T13:47:50	156	docs(rooms): document RoomStatus vs BookingStatus
+2026-06-01T13:55:40	157	feat(room): image metadata association for gallery UI
