@@ -158,3 +158,5 @@
 2026-06-01T13:55:40	157	feat(room): image metadata association for gallery UI
 2026-06-02T10:59:17	158	test(room): cover availability and status transitions
 2026-06-02T12:38:36	159	feat(room): seasonal pricing entity and effective price helper
+2026-06-02T15:13:02	160	docs(rooms): document RoomStatus vs BookingStatus
+2026-06-02T20:13:03	161	feat(room): seasonal pricing entity and effective price helper
