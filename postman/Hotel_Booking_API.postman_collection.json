@@ -1,0 +1,291 @@
+{
+  "info": {
+    "name": "Hotel Booking API",
+    "description": "Module 15 Postman collection — Auth, Guests, Rooms, Bookings, Payments, Reports.\nBase URL uses collection variable `baseUrl` (default http://localhost:8080/api).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080/api" },
+    { "key": "accessToken", "value": "" },
+    { "key": "refreshToken", "value": "" },
+    { "key": "bookingId", "value": "1" },
+    { "key": "guestId", "value": "1" },
+    { "key": "roomId", "value": "1" },
+    { "key": "paymentId", "value": "1" }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{accessToken}}", "type": "string" }]
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Asha\",\n  \"lastName\": \"Patel\",\n  \"email\": \"asha.patel@example.com\",\n  \"password\": \"Password123!\",\n  \"phone\": \"+919876543210\"\n}"
+            },
+            "url": "{{baseUrl}}/auth/register"
+          }
+        },
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "  const j = pm.response.json();",
+                  "  pm.collectionVariables.set('accessToken', j.accessToken || j.token || '');",
+                  "  pm.collectionVariables.set('refreshToken', j.refreshToken || '');",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"asha.patel@example.com\",\n  \"password\": \"Password123!\"\n}"
+            },
+            "url": "{{baseUrl}}/auth/login"
+          }
+        },
+        {
+          "name": "Refresh",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refreshToken\": \"{{refreshToken}}\"\n}"
+            },
+            "url": "{{baseUrl}}/auth/refresh"
+          }
+        },
+        {
+          "name": "Forgot password",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"asha.patel@example.com\"\n}"
+            },
+            "url": "{{baseUrl}}/auth/forgot-password"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Guests",
+      "item": [
+        {
+          "name": "List guests",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/guests?page=0&size=10"
+          }
+        },
+        {
+          "name": "Get guest",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/guests/{{guestId}}"
+          }
+        },
+        {
+          "name": "Create guest",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Rahul\",\n  \"lastName\": \"Sharma\",\n  \"email\": \"rahul.sharma@example.com\",\n  \"phone\": \"+919811122233\"\n}"
+            },
+            "url": "{{baseUrl}}/guests"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rooms",
+      "item": [
+        {
+          "name": "Search rooms",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "url": "{{baseUrl}}/rooms/search?page=0&size=10"
+          }
+        },
+        {
+          "name": "Get room",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "url": "{{baseUrl}}/rooms/{{roomId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bookings",
+      "item": [
+        {
+          "name": "Availability",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/bookings/availability?roomId={{roomId}}&checkInDate=2026-09-01&checkOutDate=2026-09-03"
+          }
+        },
+        {
+          "name": "Create booking",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201 || pm.response.code === 200) {",
+                  "  const j = pm.response.json();",
+                  "  if (j.id) pm.collectionVariables.set('bookingId', String(j.id));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"guestId\": {{guestId}},\n  \"roomIds\": [{{roomId}}],\n  \"checkInDate\": \"2026-09-01\",\n  \"checkOutDate\": \"2026-09-03\",\n  \"specialRequests\": \"Late check-in\"\n}"
+            },
+            "url": "{{baseUrl}}/bookings"
+          }
+        },
+        {
+          "name": "Get booking",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/bookings/{{bookingId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payments",
+      "item": [
+        {
+          "name": "Create order",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookingId\": {{bookingId}}\n}"
+            },
+            "url": "{{baseUrl}}/payments/create-order"
+          }
+        },
+        {
+          "name": "Verify payment",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"razorpayOrderId\": \"order_replace\",\n  \"razorpayPaymentId\": \"pay_replace\",\n  \"razorpaySignature\": \"sig_replace\"\n}"
+            },
+            "url": "{{baseUrl}}/payments/verify"
+          }
+        },
+        {
+          "name": "Refund (ADMIN)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentId\": {{paymentId}}\n}"
+            },
+            "url": "{{baseUrl}}/payments/refund"
+          }
+        },
+        {
+          "name": "Get invoice",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/payments/invoice/{{bookingId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin Reports",
+      "item": [
+        {
+          "name": "Dashboard",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/admin/dashboard"
+          }
+        },
+        {
+          "name": "Revenue",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/admin/reports/revenue?startDate=2026-08-01&endDate=2026-08-31&period=DAILY"
+          }
+        },
+        {
+          "name": "Occupancy",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/admin/reports/occupancy?startDate=2026-08-01&endDate=2026-08-07"
+          }
+        },
+        {
+          "name": "Bookings report",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/admin/reports/bookings?startDate=2026-08-01&endDate=2026-08-31"
+          }
+        },
+        {
+          "name": "Monthly",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/admin/reports/monthly?year=2026&month=8"
+          }
+        },
+        {
+          "name": "Payments FAILED only",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/admin/reports/payments?startDate=2026-08-01&endDate=2026-08-31&status=FAILED"
+          }
+        },
+        {
+          "name": "Monthly CSV export",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/admin/reports/monthly/export?year=2026&month=8"
+          }
+        }
+      ]
+    }
+  ]
+}
