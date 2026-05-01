@@ -167,3 +167,5 @@
 2026-06-03T16:25:39	166	docs(booking): explain hold expiry and concurrency model
 2026-06-03T19:17:41	167	feat(booking): cancel flow blocked while SUCCESS payment open
 2026-06-03T20:23:18	168	feat(booking): pessimistic write lock on room during create
+2026-06-03T21:09:22	169	docs(booking): explain hold expiry and concurrency model
+2026-06-03T21:15:21	170	test(booking): unit tests for overlap and status transitions
