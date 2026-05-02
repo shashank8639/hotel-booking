@@ -171,3 +171,5 @@
 2026-06-03T21:15:21	170	test(booking): unit tests for overlap and status transitions
 2026-06-04T09:22:10	171	feat(booking): create PENDING booking with soft-hold expiry
 2026-06-04T10:52:37	172	feat(booking): pessimistic write lock on room during create
+2026-06-04T12:43:34	173	test(booking): unit tests for overlap and status transitions
+2026-06-04T13:00:26	174	docs(booking): explain hold expiry and concurrency model
