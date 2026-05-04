@@ -175,3 +175,5 @@
 2026-06-04T13:00:26	174	docs(booking): explain hold expiry and concurrency model
 2026-06-04T13:56:32	175	feat(booking): multi-room booking with same-hotel assertion
 2026-06-04T18:37:30	176	feat(booking): overlap detection query excluding cancelled stays
+2026-06-04T18:48:58	177	fix(booking): ignore expired PENDING holds in overlap checks
+2026-06-05T11:41:01	178	docs(booking): explain hold expiry and concurrency model
