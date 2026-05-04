@@ -1,0 +1,17 @@
+{{>header}}
+<h1 style="font-size:24px;margin:0 0 12px;color:#0f3d2e;">Booking Confirmed</h1>
+<p style="margin:0 0 18px;line-height:1.6;">Dear {{guestName}},</p>
+<p style="margin:0 0 18px;line-height:1.6;">
+  Your stay at <strong>{{hotelName}}</strong> is confirmed. We look forward to welcoming you.
+</p>
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="font-size:14px;line-height:1.7;">
+  <tr><td style="padding:4px 0;width:40%;color:#666;">Booking ID</td><td><strong>#{{bookingId}}</strong></td></tr>
+  <tr><td style="padding:4px 0;color:#666;">Status</td><td>{{bookingStatus}}</td></tr>
+  <tr><td style="padding:4px 0;color:#666;">Check-in</td><td>{{checkInDate}}</td></tr>
+  <tr><td style="padding:4px 0;color:#666;">Check-out</td><td>{{checkOutDate}}</td></tr>
+  <tr><td style="padding:4px 0;color:#666;">Nights</td><td>{{numberOfNights}}</td></tr>
+  <tr><td style="padding:4px 0;color:#666;">Rooms</td><td>{{roomsSummary}}</td></tr>
+  <tr><td style="padding:4px 0;color:#666;">Total Amount</td><td><strong>{{totalAmount}}</strong></td></tr>
+</table>
+<p style="margin:22px 0 0;line-height:1.6;">A payment receipt and invoice follow in separate emails.</p>
+{{>footer}}
