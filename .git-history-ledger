@@ -177,3 +177,5 @@
 2026-06-04T18:37:30	176	feat(booking): overlap detection query excluding cancelled stays
 2026-06-04T18:48:58	177	fix(booking): ignore expired PENDING holds in overlap checks
 2026-06-05T11:41:01	178	docs(booking): explain hold expiry and concurrency model
+2026-06-05T11:47:22	179	feat(booking): multi-room booking with same-hotel assertion
+2026-06-05T13:35:49	180	feat(booking): cancel flow blocked while SUCCESS payment open
