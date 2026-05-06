@@ -179,3 +179,6 @@
 2026-06-05T11:41:01	178	docs(booking): explain hold expiry and concurrency model
 2026-06-05T11:47:22	179	feat(booking): multi-room booking with same-hotel assertion
 2026-06-05T13:35:49	180	feat(booking): cancel flow blocked while SUCCESS payment open
+2026-06-05T17:07:18	181	test(booking): unit tests for overlap and status transitions
+2026-06-05T21:04:59	182	feat(booking): create PENDING booking with soft-hold expiry
+2026-06-06T09:47:17	183	feat(booking): create PENDING booking with soft-hold expiry
