@@ -182,3 +182,5 @@
 2026-06-05T17:07:18	181	test(booking): unit tests for overlap and status transitions
 2026-06-05T21:04:59	182	feat(booking): create PENDING booking with soft-hold expiry
 2026-06-06T09:47:17	183	feat(booking): create PENDING booking with soft-hold expiry
+2026-06-06T11:21:59	184	feat(booking): cancel flow blocked while SUCCESS payment open
+2026-06-06T15:05:07	185	feat(booking): pessimistic write lock on room during create
