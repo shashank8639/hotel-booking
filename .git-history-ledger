@@ -188,3 +188,6 @@
 2026-06-06T17:57:15	187	feat(booking): create PENDING booking with soft-hold expiry
 2026-06-06T19:40:21	188	feat(booking): overlap detection query excluding cancelled stays
 2026-06-06T19:53:48	189	feat(booking): create PENDING booking with soft-hold expiry
+2026-06-06T20:42:21	190	feat(booking): overlap detection query excluding cancelled stays
+2026-06-07T09:23:01	191	feat(booking): create PENDING booking with soft-hold expiry
+2026-06-07T09:36:07	192	fix(booking): ignore expired PENDING holds in overlap checks
