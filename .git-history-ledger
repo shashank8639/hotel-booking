@@ -199,3 +199,5 @@
 2026-06-07T13:21:38	198	test(booking): unit tests for overlap and status transitions
 2026-06-07T13:36:07	199	fix(booking): ignore expired PENDING holds in overlap checks
 2026-06-07T14:05:41	200	fix(booking): ignore expired PENDING holds in overlap checks
+2026-06-07T14:09:32	201	feat(booking): cancel flow blocked while SUCCESS payment open
+2026-06-07T14:18:00	202	feat(booking): pessimistic write lock on room during create
