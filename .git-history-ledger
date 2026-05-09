@@ -196,3 +196,6 @@
 2026-06-07T11:05:05	195	fix(booking): ignore expired PENDING holds in overlap checks
 2026-06-07T11:33:54	196	feat(booking): create PENDING booking with soft-hold expiry
 2026-06-07T12:15:09	197	feat(booking): pessimistic write lock on room during create
+2026-06-07T13:21:38	198	test(booking): unit tests for overlap and status transitions
+2026-06-07T13:36:07	199	fix(booking): ignore expired PENDING holds in overlap checks
+2026-06-07T14:05:41	200	fix(booking): ignore expired PENDING holds in overlap checks
