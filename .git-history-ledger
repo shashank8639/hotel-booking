@@ -203,3 +203,5 @@
 2026-06-07T14:18:00	202	feat(booking): pessimistic write lock on room during create
 2026-06-07T15:11:50	203	feat(booking): cancel flow blocked while SUCCESS payment open
 2026-06-07T15:33:37	204	feat(booking): multi-room booking with same-hotel assertion
+2026-06-07T15:52:31	205	feat(booking): pessimistic write lock on room during create
+2026-06-07T16:16:20	206	test(booking): unit tests for overlap and status transitions
