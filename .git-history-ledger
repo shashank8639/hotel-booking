@@ -207,3 +207,5 @@
 2026-06-07T16:16:20	206	test(booking): unit tests for overlap and status transitions
 2026-06-07T16:16:25	207	fix(booking): ignore expired PENDING holds in overlap checks
 2026-06-07T16:42:55	208	feat(booking): create PENDING booking with soft-hold expiry
+2026-06-07T17:19:14	209	feat(booking): multi-room booking with same-hotel assertion
+2026-06-07T17:22:27	210	fix(booking): ignore expired PENDING holds in overlap checks
