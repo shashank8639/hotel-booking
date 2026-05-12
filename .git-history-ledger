@@ -209,3 +209,5 @@
 2026-06-07T16:42:55	208	feat(booking): create PENDING booking with soft-hold expiry
 2026-06-07T17:19:14	209	feat(booking): multi-room booking with same-hotel assertion
 2026-06-07T17:22:27	210	fix(booking): ignore expired PENDING holds in overlap checks
+2026-06-07T17:32:07	211	feat(booking): overlap detection query excluding cancelled stays
+2026-06-07T18:25:35	212	feat(booking): cancel flow blocked while SUCCESS payment open
