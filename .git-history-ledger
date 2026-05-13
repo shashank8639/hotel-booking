@@ -211,3 +211,5 @@
 2026-06-07T17:22:27	210	fix(booking): ignore expired PENDING holds in overlap checks
 2026-06-07T17:32:07	211	feat(booking): overlap detection query excluding cancelled stays
 2026-06-07T18:25:35	212	feat(booking): cancel flow blocked while SUCCESS payment open
+2026-06-07T18:43:03	213	feat(booking): create PENDING booking with soft-hold expiry
+2026-06-07T19:15:52	214	docs(booking): explain hold expiry and concurrency model
