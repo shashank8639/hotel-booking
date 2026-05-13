@@ -1,0 +1,15 @@
+{{>header}}
+<h1 style="font-size:24px;margin:0 0 12px;color:#0f3d2e;">Payment Successful</h1>
+<p style="margin:0 0 18px;line-height:1.6;">Dear {{guestName}},</p>
+<p style="margin:0 0 18px;line-height:1.6;">
+  We have received your payment for booking <strong>#{{bookingId}}</strong>.
+</p>
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="font-size:14px;line-height:1.7;">
+  <tr><td style="padding:4px 0;width:40%;color:#666;">Payment ID</td><td>{{paymentId}}</td></tr>
+  <tr><td style="padding:4px 0;color:#666;">Razorpay Payment</td><td>{{razorpayPaymentId}}</td></tr>
+  <tr><td style="padding:4px 0;color:#666;">Amount</td><td><strong>{{amount}}</strong></td></tr>
+  <tr><td style="padding:4px 0;color:#666;">Transaction Date</td><td>{{paidAt}}</td></tr>
+  <tr><td style="padding:4px 0;color:#666;">Invoice</td><td>{{invoiceNumber}}</td></tr>
+</table>
+<p style="margin:22px 0 0;line-height:1.6;">Your tax invoice is attached in the invoice email.</p>
+{{>footer}}
