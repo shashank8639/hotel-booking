@@ -106,9 +106,9 @@ This project is built incrementally across 8 modules. See **[docs/MODULES.md](do
 
 | # | Module | Status |
 |---|--------|--------|
-| 1 | Project structure | ✅ |
-| 2 | Database design & JPA entities | ✅ *(current)* |
-| 3 | Service layer & business logic | 🔜 Next |
+| 1 | Project structure | Done |
+| 2 | Database design & JPA entities | Done *(current)* |
+| 3 | Service layer & business logic |  Next |
 | 4 | REST APIs & DTOs | ⬜ |
 | 5 | JWT authentication | ⬜ |
 | 6 | Booking business logic | ⬜ |
