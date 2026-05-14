@@ -215,3 +215,6 @@
 2026-06-07T19:15:52	214	docs(booking): explain hold expiry and concurrency model
 2026-06-07T19:46:51	215	feat(booking): create PENDING booking with soft-hold expiry
 2026-06-07T19:55:45	216	test(booking): unit tests for overlap and status transitions
+2026-06-07T20:44:47	217	feat(booking): cancel flow blocked while SUCCESS payment open
+2026-06-07T20:47:53	218	feat(booking): overlap detection query excluding cancelled stays
+2026-06-07T20:54:26	219	feat(booking): overlap detection query excluding cancelled stays
