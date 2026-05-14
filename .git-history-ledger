@@ -218,3 +218,5 @@
 2026-06-07T20:44:47	217	feat(booking): cancel flow blocked while SUCCESS payment open
 2026-06-07T20:47:53	218	feat(booking): overlap detection query excluding cancelled stays
 2026-06-07T20:54:26	219	feat(booking): overlap detection query excluding cancelled stays
+2026-06-07T21:07:22	220	feat(booking): cancel flow blocked while SUCCESS payment open
+2026-06-07T21:14:25	221	feat(booking): create PENDING booking with soft-hold expiry

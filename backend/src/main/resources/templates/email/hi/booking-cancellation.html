@@ -1,0 +1,18 @@
+{{>header}}
+<h1 style="font-size:24px;margin:0 0 12px;color:#0f3d2e;">बुकिंग रद्द</h1>
+<p style="margin:0 0 18px;line-height:1.6;">प्रिय {{guestName}},</p>
+<p style="margin:0 0 18px;line-height:1.6;">
+  आपकी बुकिंग <strong>#{{bookingId}}</strong> दिनांक {{cancellationDate}} को रद्द कर दी गई है।
+</p>
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="font-size:14px;line-height:1.7;">
+  <tr><td style="padding:4px 0;width:40%;color:#666;">चेक-इन</td><td>{{checkInDate}}</td></tr>
+  <tr><td style="padding:4px 0;color:#666;">चेक-आउट</td><td>{{checkOutDate}}</td></tr>
+  <tr><td style="padding:4px 0;color:#666;">कमरे</td><td>{{roomsSummary}}</td></tr>
+  <tr><td style="padding:4px 0;color:#666;">मूल राशि</td><td>{{totalAmount}}</td></tr>
+  <tr><td style="padding:4px 0;color:#666;">रिफंड स्थिति</td><td>{{refundStatus}}</td></tr>
+  <tr><td style="padding:4px 0;color:#666;">रिफंड राशि</td><td>{{refundAmount}}</td></tr>
+</table>
+<p style="margin:22px 0 0;line-height:1.6;">
+  रिफंड संबंधी प्रश्न? <a href="mailto:{{supportEmail}}" style="color:#0f3d2e;">{{supportEmail}}</a> पर संपर्क करें।
+</p>
+{{>footer}}
