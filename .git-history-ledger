@@ -222,3 +222,5 @@
 2026-06-07T21:14:25	221	feat(booking): create PENDING booking with soft-hold expiry
 2026-06-07T21:43:50	222	feat(booking): overlap detection query excluding cancelled stays
 2026-06-08T09:01:48	223	test(payment): verify idempotent success and invalid signature
+2026-06-08T12:20:23	224	fix(payment): unique mock order ids across JVM restarts
+2026-06-08T17:14:13	225	feat(payment): webhook idempotency via event id unique key
