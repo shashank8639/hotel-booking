@@ -224,3 +224,5 @@
 2026-06-08T09:01:48	223	test(payment): verify idempotent success and invalid signature
 2026-06-08T12:20:23	224	fix(payment): unique mock order ids across JVM restarts
 2026-06-08T17:14:13	225	feat(payment): webhook idempotency via event id unique key
+2026-06-08T17:25:29	226	feat(payment): refund endpoint restricted to ADMIN
+2026-06-08T17:44:37	227	feat(payment): Razorpay gateway interface with mock implementation
