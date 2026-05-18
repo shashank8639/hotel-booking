@@ -7,10 +7,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -18,6 +20,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import jakarta.persistence.Index;
+import org.hibernate.annotations.SQLRestriction;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -27,8 +31,15 @@ import java.util.List;
 /**
  * Represents a reservation made by a guest for one or more rooms.
  */
+@SQLRestriction("status <> 'CANCELLED'")
 @Entity
-@Table(name = "bookings")
+@Table(name = "bookings",
+        indexes= {
+            @Index(
+                    name="idx_booking_guest_status",
+                    columnList = "guest_id,status"
+            )
+        })
 @Getter
 @Setter
 @NoArgsConstructor
@@ -63,6 +74,10 @@ public class Booking extends BaseEntity {
 
     @Column(name = "special_requests", columnDefinition = "TEXT")
     private String specialRequests;
+
+    @Version
+    @Column(name = "version", nullable = false)
+    private Long version;
 
     /**
      * Owning side of Booking ↔ BookingRoom aggregate.

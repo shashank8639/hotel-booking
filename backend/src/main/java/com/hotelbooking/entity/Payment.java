@@ -65,6 +65,6 @@ public class Payment extends BaseEntity {
     @Column(name = "transaction_reference", length = 100)
     private String transactionReference;
 
-    @Column(name = "paid_at")
+    @Column(name = "paid_at",updatable = false)
     private LocalDateTime paidAt;
 }
