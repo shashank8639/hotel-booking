@@ -229,3 +229,5 @@
 2026-06-08T18:15:04	228	fix(payment): unique mock order ids across JVM restarts
 2026-06-08T18:15:41	229	feat(payment): Razorpay gateway interface with mock implementation
 2026-06-08T20:14:51	230	feat(payment): Razorpay gateway interface with mock implementation
+2026-06-09T09:20:54	231	feat(payment): refund endpoint restricted to ADMIN
+2026-06-09T13:46:04	232	fix(payment): unique mock order ids across JVM restarts
