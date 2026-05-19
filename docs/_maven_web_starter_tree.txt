@@ -1,0 +1,28 @@
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:3.5.4:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:3.5.4:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:3.5.4:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:3.5.4:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:3.5.4:compile
+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.5.18:compile
+[INFO] |  |  |  |  \- ch.qos.logback:logback-core:jar:1.5.18:compile
+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.24.3:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.24.3:compile
+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:2.0.17:compile
+[INFO] |  |  +- jakarta.annotation:jakarta.annotation-api:jar:2.1.1:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:2.4:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:3.5.4:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.19.2:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.19.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.19.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:3.5.4:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:10.1.43:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:10.1.43:compile
+[INFO] |  +- org.springframework:spring-web:jar:6.2.9:compile
+[INFO] |  |  +- org.springframework:spring-beans:jar:6.2.9:compile
+[INFO] |  |  \- io.micrometer:micrometer-observation:jar:1.15.2:compile
+[INFO] |  \- org.springframework:spring-webmvc:jar:6.2.9:compile
+[INFO] |     +- org.springframework:spring-context:jar:6.2.9:compile
+[INFO] |     \- org.springframework:spring-expression:jar:6.2.9:compile
+
+# Regenerated with:
+#   cd backend && mvn dependency:tree
