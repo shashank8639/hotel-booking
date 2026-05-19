@@ -236,3 +236,5 @@
 2026-06-09T17:56:10	235	feat(payment): Razorpay gateway interface with mock implementation
 2026-06-09T19:40:46	236	docs(payments): mock vs live gateway configuration
 2026-06-10T09:37:02	237	docs(payments): mock vs live gateway configuration
+2026-06-10T12:03:17	238	feat(payment): create-order with GST snapshot and FX fields
+2026-06-10T12:41:42	239	feat(payment): webhook idempotency via event id unique key
