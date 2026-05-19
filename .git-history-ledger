@@ -233,3 +233,6 @@
 2026-06-09T13:46:04	232	fix(payment): unique mock order ids across JVM restarts
 2026-06-09T14:42:08	233	test(payment): verify idempotent success and invalid signature
 2026-06-09T15:21:42	234	feat(payment): webhook idempotency via event id unique key
+2026-06-09T17:56:10	235	feat(payment): Razorpay gateway interface with mock implementation
+2026-06-09T19:40:46	236	docs(payments): mock vs live gateway configuration
+2026-06-10T09:37:02	237	docs(payments): mock vs live gateway configuration
