@@ -1,16 +1,46 @@
+<<<<<<< HEAD
 # Database Design — Module 2
 
 This document describes the persistence layer: schema, entities, relationships, and migration setup.
 
 ## Status
+=======
+# Module 2 Guide — Database Design (Learn the Foundation)
+
+Before services and APIs, we designed the **data model**. Seniors do this first because every feature later depends on it.
+
+**Mentor question to keep asking:**  
+*“If I delete this row, what else breaks? If I change this price, should old bookings change too?”*
+
+Those questions led to foreign keys, `ON DELETE RESTRICT`/`CASCADE`, and the price snapshot on `booking_rooms`.
+
+**How to study this module:**
+1. Sketch the ER diagram from memory  
+2. Open each entity and match fields to SQL columns  
+3. Apply V1 (and V2/V3 if needed) on MySQL and run `SHOW TABLES`  
+4. Only then move to Security (Module 3) and Guest APIs (Module 4)
+
+Learning path: [MODULES.md](MODULES.md)
+
+---
+
+## What you built (checklist)
+>>>>>>> feature/module-1-foundation-practice
 
 | Item | Status |
 |------|--------|
 | SQL schema (`V1__create_tables.sql`) | Done |
 | Sample seed data (`V2__seed_sample_data.sql`) | Done |
+<<<<<<< HEAD
 | JPA entities (5) | Done |
 | Spring Data repositories (5) | Done |
 | Flyway dependency in `pom.xml` | Pending (future module) |
+=======
+| Optimistic locking + index (`V3`) | Done |
+| JPA entities (5 core booking entities) | Done |
+| Spring Data repositories | Done |
+| Flyway dependency auto-run in `pom.xml` | Pending (later) |
+>>>>>>> feature/module-1-foundation-practice
 
 ## Entity Relationship Diagram
 
@@ -115,6 +145,14 @@ Tests use H2 in-memory with `ddl-auto: create-drop` — no MySQL required for `m
 5. **ON DELETE CASCADE** on `booking_rooms` and `payments` — line items and payments tied to booking lifecycle.
 6. **FetchType.LAZY** on all relationships — performance best practice; explicit fetch joins in services when needed.
 
+<<<<<<< HEAD
 ## Next Module
 
 Module 3 will add the **Service layer** — business logic and `@Transactional` boundaries on top of these repositories.
+=======
+## Related Modules
+
+- **Module 3** — Auth tables (`users`, `roles`, `refresh_tokens`, …) in `V4__create_auth_tables.sql` — see [SECURITY.md](SECURITY.md)
+- **Module 4** — Guest Management APIs on top of `guests` — see [GUESTS.md](GUESTS.md)
+- **Module 5 (next)** — Room Management APIs on top of `rooms`
+>>>>>>> feature/module-1-foundation-practice

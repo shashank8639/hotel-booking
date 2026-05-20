@@ -1,0 +1,2 @@
+# Example Nginx when Spring Boot uses context-path=/api/v1.
+# Prefer the maintained file: `docker/nginx.prod.conf`.

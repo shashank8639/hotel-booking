@@ -17,7 +17,15 @@ public class CorsConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
+<<<<<<< HEAD
         configuration.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:3000"));
+=======
+        configuration.setAllowedOrigins(List.of(
+                "http://localhost:5173",   // Vite React SPA
+                "http://localhost:3000",   // CRA / alternate local UI
+                "http://localhost:19006"   // Hypothetical Expo / React Native web
+        ));
+>>>>>>> feature/module-1-foundation-practice
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);

@@ -6,7 +6,11 @@ spring:
     active: dev
 
   datasource:
+<<<<<<< HEAD
     url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:hotel_booking}?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+=======
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:hotel_booking}?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&connectionCollation=utf8mb4_unicode_ci
+>>>>>>> feature/module-1-foundation-practice
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -38,11 +42,35 @@ logging:
     org.springframework.security: INFO
     org.hibernate.SQL: DEBUG
 
+<<<<<<< HEAD
 # JWT configuration (values overridden via environment in production)
 app:
   jwt:
     secret: ${JWT_SECRET:change-me-in-production-use-at-least-256-bit-secret-key}
     expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+=======
+# Application metadata + JWT (values overridden via environment in production)
+app:
+  name: Hotel Booking System
+  version: 0.0.1-SNAPSHOT
+  jwt:
+    secret: ${JWT_SECRET:change-me-in-production-use-at-least-256-bit-secret-key}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+  booking:
+    pending-hold-minutes: ${BOOKING_PENDING_HOLD_MINUTES:15}
+    expiry-enabled: true
+    expiry-fixed-delay-ms: ${BOOKING_EXPIRY_FIXED_DELAY_MS:300000}
+  payment:
+    pending-order-minutes: ${PAYMENT_PENDING_ORDER_MINUTES:30}
+    expiry-enabled: true
+    expiry-fixed-delay-ms: ${PAYMENT_EXPIRY_FIXED_DELAY_MS:300000}
+    gst-rate: 0.18
+    base-currency: INR
+    fx-rates-to-base:
+      INR: 1
+      USD: 83.50
+      EUR: 90.00
+>>>>>>> feature/module-1-foundation-practice
 
 # Swagger / OpenAPI
 springdoc:
