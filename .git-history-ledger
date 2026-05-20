@@ -242,3 +242,6 @@
 2026-06-10T14:48:20	241	feat(payment): refund endpoint restricted to ADMIN
 2026-06-10T15:30:49	242	docs(payments): mock vs live gateway configuration
 2026-06-10T19:22:50	243	feat(payment): create-order with GST snapshot and FX fields
+2026-06-10T20:11:54	244	test(payment): verify idempotent success and invalid signature
+2026-06-11T10:29:26	245	feat(payment): webhook idempotency via event id unique key
+2026-06-11T10:35:16	246	test(payment): verify idempotent success and invalid signature
