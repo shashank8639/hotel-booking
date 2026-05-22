@@ -245,3 +245,5 @@
 2026-06-10T20:11:54	244	test(payment): verify idempotent success and invalid signature
 2026-06-11T10:29:26	245	feat(payment): webhook idempotency via event id unique key
 2026-06-11T10:35:16	246	test(payment): verify idempotent success and invalid signature
+2026-06-11T10:41:18	247	feat(payment): webhook idempotency via event id unique key
+2026-06-11T15:16:07	248	feat(payment): create-order with GST snapshot and FX fields
