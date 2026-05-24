@@ -20,26 +20,31 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import jakarta.persistence.Index;
 import org.hibernate.annotations.SQLRestriction;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Represents a reservation made by a guest for one or more rooms.
+ * <p>
+ * {@link SQLRestriction} hides {@code CANCELLED} rows from normal entity queries (active inventory view).
+ * Use native queries when cancelled history must be loaded (reports / admin status filter).
+ * Overlap checks also exclude {@code CANCELLED} explicitly in repository JPQL.
+ * {@link Version} enables optimistic locking when two agents update the same booking.
  */
-@SQLRestriction("status <> 'CANCELLED'")
 @Entity
 @Table(name = "bookings",
-        indexes= {
-            @Index(
-                    name="idx_booking_guest_status",
-                    columnList = "guest_id,status"
-            )
+        indexes = {
+                @Index(name = "idx_booking_guest_status", columnList = "guest_id,status"),
+                @Index(name = "idx_bookings_status_dates", columnList = "status,check_in_date,check_out_date"),
+                @Index(name = "idx_bookings_pending_hold", columnList = "status,hold_expires_at"),
+                @Index(name = "idx_bookings_guest_status_checkin", columnList = "guest_id,status,check_in_date")
         })
+@SQLRestriction("status <> 'CANCELLED'")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -74,6 +79,13 @@ public class Booking extends BaseEntity {
 
     @Column(name = "special_requests", columnDefinition = "TEXT")
     private String specialRequests;
+
+    /**
+     * Soft-hold deadline for {@link BookingStatus#PENDING}. After this instant a scheduled job
+     * auto-cancels the booking so inventory is released.
+     */
+    @Column(name = "hold_expires_at")
+    private LocalDateTime holdExpiresAt;
 
     @Version
     @Column(name = "version", nullable = false)
