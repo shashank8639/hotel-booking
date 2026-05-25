@@ -72,7 +72,8 @@ Learning path: [MODULES.md](MODULES.md)
 | `rooms` | Physical room inventory | Unique `room_number` |
 | `bookings` | Guest reservations | FK → `guests`, check-out > check-in |
 | `booking_rooms` | Rooms assigned to a booking | FK → `bookings`, `rooms`; unique (booking, room) |
-| `payments` | Payment transactions | FK → `bookings`; unique `transaction_reference` |
+| `payments` | Payment transactions (Razorpay refs, invoice, refunds) | FK → `bookings`; unique `transaction_reference`, `invoice_number` |
+| `payment_webhook_events` | Webhook replay protection | Unique `event_id` (Module 7 / V6) |
 
 ## JPA Entities
 
@@ -83,8 +84,12 @@ Learning path: [MODULES.md](MODULES.md)
 | `Booking` | `bookings` | `com.hotelbooking.entity` |
 | `BookingRoom` | `booking_rooms` | `com.hotelbooking.entity` |
 | `Payment` | `payments` | `com.hotelbooking.entity` |
+| `PaymentWebhookEvent` | `payment_webhook_events` | `com.hotelbooking.entity` (Module 7) |
 
 Domain enums (`BookingStatus`, `RoomStatus`, `RoomType`, `PaymentStatus`, `PaymentMethod`) live in `com.hotelbooking.database`.
+
+`PaymentStatus` (Module 7): `PENDING`, `SUCCESS`, `FAILED`, `REFUNDED`, `CANCELLED`  
+`PaymentMethod` includes `RAZORPAY` (Module 7 / V6).
 
 ## Relationships
 
@@ -103,7 +108,10 @@ Domain enums (`BookingStatus`, `RoomStatus`, `RoomType`, `PaymentStatus`, `Payme
 | `RoomRepository` | `findByRoomNumber`, `findByStatus`, `findByRoomType` |
 | `BookingRepository` | `findByGuestId`, `findByStatus`, `findByCheckInDateBetween` |
 | `BookingRoomRepository` | `findByBookingId`, `findByRoomId` |
-| `PaymentRepository` | `findByBookingId`, `findByStatus`, `findByTransactionReference` |
+| `PaymentRepository` | `findByBookingId`, `findByStatus`, `findByRazorpayOrderId`, `findByGuestId`, … |
+| `PaymentWebhookEventRepository` | `existsByEventId` (replay guard) |
+
+**Related guides:** [BOOKING.md](BOOKING.md) (Module 6), [PAYMENTS.md](PAYMENTS.md) (Module 7), migration `V6__payment_management_enhancements.sql`.
 
 ## Applying the Schema
 
