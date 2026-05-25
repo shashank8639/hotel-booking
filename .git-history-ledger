@@ -249,3 +249,5 @@
 2026-06-11T15:16:07	248	feat(payment): create-order with GST snapshot and FX fields
 2026-06-11T20:58:39	249	docs(payments): mock vs live gateway configuration
 2026-06-12T09:14:18	250	test(payment): verify idempotent success and invalid signature
+2026-06-12T11:07:35	251	feat(payment): webhook idempotency via event id unique key
+2026-06-12T12:18:21	252	feat(payment): verify signature and confirm booking on success
