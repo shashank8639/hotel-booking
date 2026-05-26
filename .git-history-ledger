@@ -253,3 +253,5 @@
 2026-06-12T12:18:21	252	feat(payment): verify signature and confirm booking on success
 2026-06-12T14:27:51	253	feat(payment): webhook idempotency via event id unique key
 2026-06-12T16:11:00	254	test(payment): verify idempotent success and invalid signature
+2026-06-12T16:45:10	255	feat(payment): verify signature and confirm booking on success
+2026-06-12T17:19:09	256	feat(payment): create-order with GST snapshot and FX fields
