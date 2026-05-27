@@ -255,3 +255,5 @@
 2026-06-12T16:11:00	254	test(payment): verify idempotent success and invalid signature
 2026-06-12T16:45:10	255	feat(payment): verify signature and confirm booking on success
 2026-06-12T17:19:09	256	feat(payment): create-order with GST snapshot and FX fields
+2026-06-12T18:44:29	257	test(payment): verify idempotent success and invalid signature
+2026-06-13T10:23:09	258	feat(email): AsyncNotificationFacade for booking and payment mails
