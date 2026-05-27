@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:hotel_booking_test;DB_CLOSE_DELAY=-1;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+app:
+  jwt:
+    # Valid Base64 (32+ bytes) — JwtService prefers BASE64 decode before UTF-8 fallback
+    secret: MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDE=
+    expiration-ms: 3600000
+    refresh-expiration-ms: 604800000
+  razorpay:
+    mock-enabled: true
+    key-id: test_key_id
+    key-secret: mock_razorpay_secret
+    webhook-secret: mock_webhook_secret
+  mail:
+    enabled: false
+  booking:
+    pending-hold-minutes: 15
+    expiry-enabled: false
+    expiry-fixed-delay-ms: 3600000
+  payment:
+    pending-order-minutes: 30
+    expiry-enabled: false
+    expiry-fixed-delay-ms: 3600000
+    gst-rate: 0.18
+    base-currency: INR
+    fx-rates-to-base:
+      INR: 1
+      USD: 83.50
+      EUR: 90.00
