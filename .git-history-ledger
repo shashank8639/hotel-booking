@@ -257,3 +257,5 @@
 2026-06-12T17:19:09	256	feat(payment): create-order with GST snapshot and FX fields
 2026-06-12T18:44:29	257	test(payment): verify idempotent success and invalid signature
 2026-06-13T10:23:09	258	feat(email): AsyncNotificationFacade for booking and payment mails
+2026-06-13T11:50:29	259	refactor(email): swappable EmailSender and template engine beans
+2026-06-13T12:44:25	260	feat(email): Thymeleaf templates for confirmation and invoice
