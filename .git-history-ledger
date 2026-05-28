@@ -259,3 +259,5 @@
 2026-06-13T10:23:09	258	feat(email): AsyncNotificationFacade for booking and payment mails
 2026-06-13T11:50:29	259	refactor(email): swappable EmailSender and template engine beans
 2026-06-13T12:44:25	260	feat(email): Thymeleaf templates for confirmation and invoice
+2026-06-13T14:56:37	261	feat(email): logging sender for local development without SMTP
+2026-06-13T17:11:35	262	feat(email): Thymeleaf templates for confirmation and invoice
