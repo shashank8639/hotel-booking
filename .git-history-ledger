@@ -266,3 +266,5 @@
 2026-06-15T10:20:35	265	refactor(email): swappable EmailSender and template engine beans
 2026-06-15T13:47:22	266	feat(email): Thymeleaf templates for confirmation and invoice
 2026-06-15T15:14:51	267	feat(email): Thymeleaf templates for confirmation and invoice
+2026-06-15T15:37:27	268	docs(emails): outbox pattern and bounce handling notes
+2026-06-15T16:42:35	269	feat(email): transactional outbox entity and enqueue API
