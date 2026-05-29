@@ -263,3 +263,6 @@
 2026-06-13T17:11:35	262	feat(email): Thymeleaf templates for confirmation and invoice
 2026-06-13T17:28:37	263	refactor(email): swappable EmailSender and template engine beans
 2026-06-13T20:40:36	264	feat(email): AsyncNotificationFacade for booking and payment mails
+2026-06-15T10:20:35	265	refactor(email): swappable EmailSender and template engine beans
+2026-06-15T13:47:22	266	feat(email): Thymeleaf templates for confirmation and invoice
+2026-06-15T15:14:51	267	feat(email): Thymeleaf templates for confirmation and invoice
