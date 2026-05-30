@@ -268,3 +268,5 @@
 2026-06-15T15:14:51	267	feat(email): Thymeleaf templates for confirmation and invoice
 2026-06-15T15:37:27	268	docs(emails): outbox pattern and bounce handling notes
 2026-06-15T16:42:35	269	feat(email): transactional outbox entity and enqueue API
+2026-06-15T19:39:44	270	feat(email): AsyncNotificationFacade for booking and payment mails
+2026-06-15T21:55:34	271	feat(email): transactional outbox entity and enqueue API
