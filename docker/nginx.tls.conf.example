@@ -1,0 +1,69 @@
+# Example HTTPS server for the frontend/Nginx container
+#
+# Prerequisites on the Docker host:
+#   ./certs/fullchain.pem
+#   ./certs/privkey.pem
+#
+# Enable with:
+#   docker compose -f docker-compose.prod.yml -f docker-compose.tls.yml up -d
+#
+# Align location /api/v1/ with SPRING_PROFILES_ACTIVE=prod.
+
+server {
+    listen 80;
+    server_name _;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    http2 on;
+    server_name _;
+
+    ssl_certificate     /etc/nginx/certs/fullchain.pem;
+    ssl_certificate_key /etc/nginx/certs/privkey.pem;
+    ssl_session_cache   shared:SSL:10m;
+    ssl_session_timeout 1d;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+
+    root /usr/share/nginx/html;
+    index index.html;
+    server_tokens off;
+
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    gzip on;
+    gzip_types text/plain text/css application/json application/javascript application/xml image/svg+xml;
+
+    location /assets/ {
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+        try_files $uri =404;
+    }
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Block Swagger in production edge (defense in depth)
+    location ~* ^/api/v1/(swagger-ui|v3/api-docs) {
+        return 404;
+    }
+
+    location /api/v1/ {
+        proxy_pass http://backend:8080/api/v1/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header Connection "";
+    }
+
+    location ~ /\. {
+        deny all;
+    }
+}
