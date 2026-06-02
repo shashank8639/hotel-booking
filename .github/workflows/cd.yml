@@ -1,0 +1,125 @@
+# CD — publish/deploy template + Slack failure notify
+#
+# Repository secrets:
+#   REGISTRY, REGISTRY_USERNAME, REGISTRY_PASSWORD
+#   DEPLOY_HOST, DEPLOY_USER, DEPLOY_SSH_KEY
+#   SLACK_WEBHOOK_URL   (Incoming Webhook for #deploys)
+#
+# Flip `if: false` → true on publish/deploy after secrets exist.
+# Slack notify runs whenever the workflow fails (if webhook secret is set).
+name: CD
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "Extra tag (in addition to Git SHA)"
+        required: false
+        default: "latest"
+  push:
+    tags:
+      - "v*"
+
+env:
+  IMAGE_SHA: ${{ github.sha }}
+
+jobs:
+  publish:
+    name: Publish images (template)
+    runs-on: ubuntu-latest
+    if: ${{ false }} # set true after configuring REGISTRY_* secrets
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      backend_image: ${{ steps.push.outputs.backend }}
+      frontend_image: ${{ steps.push.outputs.frontend }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Login to registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.REGISTRY }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Resolve tags
+        id: tags
+        run: |
+          SHORT="${GITHUB_SHA:0:7}"
+          EXTRA="${{ github.event.inputs.image_tag || github.ref_name }}"
+          echo "short=${SHORT}" >> "$GITHUB_OUTPUT"
+          echo "extra=${EXTRA}" >> "$GITHUB_OUTPUT"
+
+      - name: Build & push backend
+        uses: docker/build-push-action@v6
+        with:
+          context: ./backend
+          file: ./docker/Dockerfile.backend
+          push: true
+          tags: |
+            ${{ secrets.REGISTRY }}/${{ github.repository }}/backend:${{ env.IMAGE_SHA }}
+            ${{ secrets.REGISTRY }}/${{ github.repository }}/backend:sha-${{ steps.tags.outputs.short }}
+            ${{ secrets.REGISTRY }}/${{ github.repository }}/backend:${{ steps.tags.outputs.extra }}
+
+      - name: Build & push frontend
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./docker/Dockerfile.frontend
+          push: true
+          build-args: |
+            VITE_API_BASE_URL=/api/v1
+          tags: |
+            ${{ secrets.REGISTRY }}/${{ github.repository }}/frontend:${{ env.IMAGE_SHA }}
+            ${{ secrets.REGISTRY }}/${{ github.repository }}/frontend:sha-${{ steps.tags.outputs.short }}
+            ${{ secrets.REGISTRY }}/${{ github.repository }}/frontend:${{ steps.tags.outputs.extra }}
+
+      - name: Export image refs
+        id: push
+        run: |
+          echo "backend=${{ secrets.REGISTRY }}/${{ github.repository }}/backend:${{ env.IMAGE_SHA }}" >> "$GITHUB_OUTPUT"
+          echo "frontend=${{ secrets.REGISTRY }}/${{ github.repository }}/frontend:${{ env.IMAGE_SHA }}" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    name: Deploy (template)
+    runs-on: ubuntu-latest
+    needs: [publish]
+    if: ${{ false }} # set true after configuring DEPLOY_* secrets
+    steps:
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: |
+            set -e
+            cd /opt/hotel-booking
+            export IMAGE_TAG="${{ github.sha }}"
+            docker compose -f docker-compose.prod.yml pull || true
+            docker compose -f docker-compose.prod.yml up -d --remove-orphans
+            docker image prune -f
+
+  # ----- Slack: runs on failure of publish or deploy (when those jobs run) -----
+  notify-failure:
+    name: Slack notify on failure
+    runs-on: ubuntu-latest
+    needs: [publish, deploy]
+    if: ${{ always() && (needs.publish.result == 'failure' || needs.deploy.result == 'failure') }}
+    steps:
+      - name: Post to Slack
+        if: ${{ secrets.SLACK_WEBHOOK_URL != '' }}
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            text: ":x: *Hotel Booking CD failed*\nRef: `${{ github.ref }}`\nSHA: `${{ github.sha }}`\nWorkflow: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\nActor: ${{ github.actor }}"
+
+      - name: Skip message when webhook missing
+        if: ${{ secrets.SLACK_WEBHOOK_URL == '' }}
+        run: echo "SLACK_WEBHOOK_URL not configured — skipping Slack notify (job still marks failure path)."
