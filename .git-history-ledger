@@ -279,3 +279,5 @@
 2026-06-17T15:01:24	278	docs(emails): outbox pattern and bounce handling notes
 2026-06-17T18:30:56	279	feat(email): AsyncNotificationFacade for booking and payment mails
 2026-06-17T18:43:42	280	feat(email): logging sender for local development without SMTP
+2026-06-17T19:57:11	281	feat(email): Thymeleaf templates for confirmation and invoice
+2026-06-18T10:07:53	282	docs(reports): analytics endpoints and security notes
