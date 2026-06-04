@@ -283,3 +283,5 @@
 2026-06-18T10:07:53	282	docs(reports): analytics endpoints and security notes
 2026-06-18T10:36:13	283	feat(reports): CSV export for monthly rollup
 2026-06-18T15:43:56	284	feat(reports): occupancy utilization within bounded date range
+2026-06-18T18:31:49	285	feat(reports): admin dashboard KPI aggregation queries
+2026-06-18T19:44:42	286	feat(reports): revenue series by day week and month
