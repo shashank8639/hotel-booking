@@ -287,3 +287,6 @@
 2026-06-18T19:44:42	286	feat(reports): revenue series by day week and month
 2026-06-18T19:59:22	287	feat(reports): occupancy utilization within bounded date range
 2026-06-19T12:11:52	288	docs(reports): analytics endpoints and security notes
+2026-06-19T13:11:49	289	feat(reports): revenue series by day week and month
+2026-06-19T14:00:40	290	docs(reports): analytics endpoints and security notes
+2026-06-19T14:01:00	291	docs(reports): analytics endpoints and security notes
