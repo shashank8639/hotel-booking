@@ -285,3 +285,5 @@
 2026-06-18T15:43:56	284	feat(reports): occupancy utilization within bounded date range
 2026-06-18T18:31:49	285	feat(reports): admin dashboard KPI aggregation queries
 2026-06-18T19:44:42	286	feat(reports): revenue series by day week and month
+2026-06-18T19:59:22	287	feat(reports): occupancy utilization within bounded date range
+2026-06-19T12:11:52	288	docs(reports): analytics endpoints and security notes
