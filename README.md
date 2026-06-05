@@ -2,7 +2,7 @@
 
 Full-stack **multi-hotel** booking platform (Telangana catalog) built with **Spring Boot 3** (Java 21) and **React 18**.
 
-> **Current status:** Module 16 — multi-hotel search, hotel detail → rooms → book → mock Razorpay pay, JWT auth, admin/owner APIs, reports, and Docker/DevOps scaffolding.
+> **Current status:** Module 16 — multi-hotel search, book, pay, JWT, admin/owner APIs, reports, Docker (portfolio-ready).
 
 Public brand: **StayFinder**. Individual hotels (e.g. Grand Horizon Hyderabad) are catalog rows, not the whole product.
 
