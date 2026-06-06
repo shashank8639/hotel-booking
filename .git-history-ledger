@@ -295,3 +295,7 @@
 2026-06-19T19:36:11	294	test(reports): repository aggregation smoke coverage
 2026-06-20T15:21:12	295	feat(reports): occupancy utilization within bounded date range
 2026-06-20T18:08:29	296	feat(reports): CSV export for monthly rollup
+2026-06-20T18:41:39	297	feat(reports): revenue series by day week and month
+2026-06-20T18:46:04	298	feat(reports): revenue series by day week and month
+2026-06-20T19:49:08	299	docs(reports): analytics endpoints and security notes
+2026-06-20T21:13:49	300	test(reports): repository aggregation smoke coverage
