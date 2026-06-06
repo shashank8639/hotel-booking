@@ -293,3 +293,5 @@
 2026-06-19T15:59:18	292	feat(reports): occupancy utilization within bounded date range
 2026-06-19T19:29:18	293	feat(reports): occupancy utilization within bounded date range
 2026-06-19T19:36:11	294	test(reports): repository aggregation smoke coverage
+2026-06-20T15:21:12	295	feat(reports): occupancy utilization within bounded date range
+2026-06-20T18:08:29	296	feat(reports): CSV export for monthly rollup
