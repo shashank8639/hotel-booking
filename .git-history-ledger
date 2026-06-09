@@ -307,3 +307,5 @@
 2026-06-22T15:11:13	306	docs(reports): analytics endpoints and security notes
 2026-06-22T16:49:44	307	test(reports): repository aggregation smoke coverage
 2026-06-22T18:14:49	308	feat(reports): revenue series by day week and month
+2026-06-22T19:37:00	309	feat(reports): admin dashboard KPI aggregation queries
+2026-06-23T10:35:19	310	feat(ui-auth): AuthContext with JWT storage and refresh hook
