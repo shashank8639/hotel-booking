@@ -309,3 +309,5 @@
 2026-06-22T18:14:49	308	feat(reports): revenue series by day week and month
 2026-06-22T19:37:00	309	feat(reports): admin dashboard KPI aggregation queries
 2026-06-23T10:35:19	310	feat(ui-auth): AuthContext with JWT storage and refresh hook
+2026-06-23T11:52:21	311	feat(ui-auth): axios interceptor attaching Bearer token
+2026-06-23T12:31:17	312	feat(ui-auth): AuthContext with JWT storage and refresh hook
