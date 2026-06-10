@@ -314,3 +314,5 @@
 2026-06-23T15:17:49	313	feat(ui-auth): Login and Register pages with validation
 2026-06-23T16:02:39	314	feat(ui-auth): Login and Register pages with validation
 2026-06-23T20:22:01	315	feat(ui-auth): axios interceptor attaching Bearer token
+2026-06-24T11:14:05	316	feat(ui-auth): AuthContext with JWT storage and refresh hook
+2026-06-24T12:16:19	317	feat(ui-auth): Login and Register pages with validation
