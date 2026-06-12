@@ -325,3 +325,5 @@
 2026-06-25T10:41:56	324	feat(ui-auth): axios interceptor attaching Bearer token
 2026-06-25T12:34:25	325	feat(ui-auth): axios interceptor attaching Bearer token
 2026-06-25T13:32:45	326	feat(ui-auth): axios interceptor attaching Bearer token
+2026-06-25T19:26:50	327	docs(react-auth): SPA auth flow and token refresh
+2026-06-25T21:09:39	328	feat(ui-auth): Login and Register pages with validation
