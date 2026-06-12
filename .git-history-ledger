@@ -318,3 +318,5 @@
 2026-06-24T12:16:19	317	feat(ui-auth): Login and Register pages with validation
 2026-06-24T13:55:05	318	feat(ui-auth): RoleRoute guard for admin-only pages
 2026-06-24T14:08:14	319	feat(ui-auth): axios interceptor attaching Bearer token
+2026-06-24T16:23:20	320	feat(ui-auth): AuthContext with JWT storage and refresh hook
+2026-06-24T17:06:41	321	feat(ui-auth): axios interceptor attaching Bearer token
