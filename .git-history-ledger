@@ -320,3 +320,8 @@
 2026-06-24T14:08:14	319	feat(ui-auth): axios interceptor attaching Bearer token
 2026-06-24T16:23:20	320	feat(ui-auth): AuthContext with JWT storage and refresh hook
 2026-06-24T17:06:41	321	feat(ui-auth): axios interceptor attaching Bearer token
+2026-06-24T19:16:15	322	feat(ui-auth): RoleRoute guard for admin-only pages
+2026-06-25T09:04:21	323	feat(ui-auth): axios interceptor attaching Bearer token
+2026-06-25T10:41:56	324	feat(ui-auth): axios interceptor attaching Bearer token
+2026-06-25T12:34:25	325	feat(ui-auth): axios interceptor attaching Bearer token
+2026-06-25T13:32:45	326	feat(ui-auth): axios interceptor attaching Bearer token
