@@ -333,3 +333,6 @@
 2026-06-26T17:15:07	332	feat(ui-auth): axios interceptor attaching Bearer token
 2026-06-26T20:21:34	333	docs(react-auth): SPA auth flow and token refresh
 2026-06-27T10:05:18	334	feat(ui-auth): Login and Register pages with validation
+2026-06-27T11:24:32	335	feat(ui-auth): AuthContext with JWT storage and refresh hook
+2026-06-27T12:12:03	336	feat(ui-auth): RoleRoute guard for admin-only pages
+2026-06-27T18:00:50	337	feat(ui-auth): RoleRoute guard for admin-only pages
