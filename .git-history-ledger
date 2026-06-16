@@ -340,3 +340,5 @@
 2026-06-27T18:41:37	339	docs(react-auth): SPA auth flow and token refresh
 2026-06-27T18:56:58	340	test(ui-auth): vitest coverage for login navigation
 2026-06-27T20:29:13	341	feat(ui-auth): Login and Register pages with validation
+2026-06-29T11:19:23	342	feat(ui): hotel detail page loading rooms by slug
+2026-06-29T11:45:38	343	feat(ui): StayFinder landing with Telangana destinations hero
