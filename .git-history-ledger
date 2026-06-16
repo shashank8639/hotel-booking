@@ -338,3 +338,5 @@
 2026-06-27T18:00:50	337	feat(ui-auth): RoleRoute guard for admin-only pages
 2026-06-27T18:01:49	338	test(ui-auth): vitest coverage for login navigation
 2026-06-27T18:41:37	339	docs(react-auth): SPA auth flow and token refresh
+2026-06-27T18:56:58	340	test(ui-auth): vitest coverage for login navigation
+2026-06-27T20:29:13	341	feat(ui-auth): Login and Register pages with validation
