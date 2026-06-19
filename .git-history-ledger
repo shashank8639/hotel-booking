@@ -344,3 +344,6 @@
 2026-06-29T11:45:38	343	feat(ui): StayFinder landing with Telangana destinations hero
 2026-06-29T13:15:25	344	feat(ui): hotel detail page loading rooms by slug
 2026-06-29T16:36:24	345	feat(ui): StayFinder landing with Telangana destinations hero
+2026-06-29T21:02:52	346	feat(ui): hotels search page with city and star filters
+2026-06-30T09:43:40	347	feat(ui): room cards and details gallery components
+2026-06-30T11:45:00	348	feat(ui): room cards and details gallery components
