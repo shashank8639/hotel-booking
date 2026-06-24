@@ -361,3 +361,5 @@
 2026-07-02T11:50:17	360	docs(public-site): marketing sections and routing map
 2026-07-02T14:30:48	361	docs(public-site): marketing sections and routing map
 2026-07-02T15:01:27	362	docs(public-site): marketing sections and routing map
+2026-07-02T17:43:25	363	feat(ui): hotels search page with city and star filters
+2026-07-02T17:51:43	364	feat(ui): hotel detail page loading rooms by slug
