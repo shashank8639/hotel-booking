@@ -369,3 +369,5 @@
 2026-07-03T17:40:31	368	docs(booking-ui): wizard state and payment demo mode
 2026-07-03T18:57:17	369	docs(booking-ui): wizard state and payment demo mode
 2026-07-03T20:26:11	370	feat(ui-booking): checkout page with mock Razorpay verify
+2026-07-04T10:33:20	371	feat(ui-booking): success page with invoice download link
+2026-07-04T10:40:16	372	feat(ui-booking): multi-step wizard with guest and summary steps
