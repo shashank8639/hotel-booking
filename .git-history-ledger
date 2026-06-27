@@ -373,3 +373,5 @@
 2026-07-04T10:40:16	372	feat(ui-booking): multi-step wizard with guest and summary steps
 2026-07-04T12:37:45	373	test(ui-booking): wizard draft persistence helpers
 2026-07-04T12:37:59	374	docs(booking-ui): wizard state and payment demo mode
+2026-07-04T17:19:18	375	feat(ui-booking): lock guest email to authenticated user
+2026-07-04T19:25:10	376	test(ui-booking): wizard draft persistence helpers
