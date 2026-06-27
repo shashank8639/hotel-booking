@@ -375,3 +375,5 @@
 2026-07-04T12:37:59	374	docs(booking-ui): wizard state and payment demo mode
 2026-07-04T17:19:18	375	feat(ui-booking): lock guest email to authenticated user
 2026-07-04T19:25:10	376	test(ui-booking): wizard draft persistence helpers
+2026-07-04T21:55:47	377	feat(ui-booking): success page with invoice download link
+2026-07-06T10:55:25	378	feat(ui-booking): checkout page with mock Razorpay verify
