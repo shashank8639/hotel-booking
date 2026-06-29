@@ -381,3 +381,5 @@
 2026-07-06T18:12:27	380	feat(ui-booking): success page with invoice download link
 2026-07-06T20:37:09	381	feat(ui-booking): checkout page with mock Razorpay verify
 2026-07-06T21:07:31	382	feat(ui-booking): checkout page with mock Razorpay verify
+2026-07-07T09:25:33	383	feat(ui-booking): success page with invoice download link
+2026-07-07T11:49:04	384	test(ui-booking): wizard draft persistence helpers
