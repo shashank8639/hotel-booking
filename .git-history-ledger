@@ -385,3 +385,5 @@
 2026-07-07T11:49:04	384	test(ui-booking): wizard draft persistence helpers
 2026-07-07T15:10:30	385	docs(booking-ui): wizard state and payment demo mode
 2026-07-07T16:26:00	386	test(ui-booking): wizard draft persistence helpers
+2026-07-07T17:19:41	387	feat(ui-booking): lock guest email to authenticated user
+2026-07-07T17:52:28	388	feat(ui-booking): multi-step wizard with guest and summary steps
