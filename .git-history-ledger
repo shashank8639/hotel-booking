@@ -390,3 +390,5 @@
 2026-07-07T21:40:52	389	docs(booking-ui): wizard state and payment demo mode
 2026-07-08T13:33:04	390	feat(admin): AdminLayout sidebar and responsive drawer
 2026-07-08T15:38:37	391	feat(admin): AdminLayout sidebar and responsive drawer
+2026-07-08T16:09:48	392	feat(admin): hotel approval queue for pending listings
+2026-07-08T17:37:15	393	feat(admin): rooms guests bookings payments management pages
