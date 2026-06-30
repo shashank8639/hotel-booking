@@ -387,3 +387,6 @@
 2026-07-07T16:26:00	386	test(ui-booking): wizard draft persistence helpers
 2026-07-07T17:19:41	387	feat(ui-booking): lock guest email to authenticated user
 2026-07-07T17:52:28	388	feat(ui-booking): multi-step wizard with guest and summary steps
+2026-07-07T21:40:52	389	docs(booking-ui): wizard state and payment demo mode
+2026-07-08T13:33:04	390	feat(admin): AdminLayout sidebar and responsive drawer
+2026-07-08T15:38:37	391	feat(admin): AdminLayout sidebar and responsive drawer
