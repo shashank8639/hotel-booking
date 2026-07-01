@@ -392,3 +392,5 @@
 2026-07-08T15:38:37	391	feat(admin): AdminLayout sidebar and responsive drawer
 2026-07-08T16:09:48	392	feat(admin): hotel approval queue for pending listings
 2026-07-08T17:37:15	393	feat(admin): rooms guests bookings payments management pages
+2026-07-08T21:04:04	394	feat(admin): dashboard charts for revenue and occupancy
+2026-07-09T11:28:08	395	docs(admin): operations chrome vs public site chrome
