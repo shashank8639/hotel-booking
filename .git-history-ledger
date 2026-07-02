@@ -396,3 +396,6 @@
 2026-07-09T11:28:08	395	docs(admin): operations chrome vs public site chrome
 2026-07-09T13:34:26	396	feat(admin): dashboard charts for revenue and occupancy
 2026-07-09T16:25:41	397	feat(admin): AdminLayout sidebar and responsive drawer
+2026-07-09T16:35:24	398	feat(admin): rooms guests bookings payments management pages
+2026-07-09T17:57:38	399	feat(admin): rooms guests bookings payments management pages
+2026-07-10T12:00:58	400	docs(admin): operations chrome vs public site chrome
