@@ -399,3 +399,6 @@
 2026-07-09T16:35:24	398	feat(admin): rooms guests bookings payments management pages
 2026-07-09T17:57:38	399	feat(admin): rooms guests bookings payments management pages
 2026-07-10T12:00:58	400	docs(admin): operations chrome vs public site chrome
+2026-07-10T18:03:42	401	feat(admin): AdminLayout sidebar and responsive drawer
+2026-07-10T19:38:44	402	feat(admin): hotel approval queue for pending listings
+2026-07-10T21:16:23	403	feat(admin): hotel approval queue for pending listings
