@@ -404,3 +404,6 @@
 2026-07-10T21:16:23	403	feat(admin): hotel approval queue for pending listings
 2026-07-10T21:24:56	404	docs(admin): operations chrome vs public site chrome
 2026-07-11T09:09:16	405	feat(admin): dashboard charts for revenue and occupancy
+2026-07-11T09:49:30	406	feat(admin): rooms guests bookings payments management pages
+2026-07-11T12:02:55	407	feat(admin): rooms guests bookings payments management pages
+2026-07-11T15:32:11	408	docs(admin): operations chrome vs public site chrome
