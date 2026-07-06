@@ -409,3 +409,5 @@
 2026-07-11T15:32:11	408	docs(admin): operations chrome vs public site chrome
 2026-07-11T17:40:51	409	feat(admin): dashboard charts for revenue and occupancy
 2026-07-11T21:45:47	410	feat(admin): hotel approval queue for pending listings
+2026-07-13T10:47:48	411	test(backend): expand service unit tests for booking and payment
+2026-07-13T12:39:24	412	docs(testing): how to run unit integration and e2e suites
