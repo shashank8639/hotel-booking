@@ -411,3 +411,5 @@
 2026-07-11T21:45:47	410	feat(admin): hotel approval queue for pending listings
 2026-07-13T10:47:48	411	test(backend): expand service unit tests for booking and payment
 2026-07-13T12:39:24	412	docs(testing): how to run unit integration and e2e suites
+2026-07-13T14:45:18	413	test(backend): expand service unit tests for booking and payment
+2026-07-13T15:02:01	414	test(backend): security integration tests for role gates
