@@ -413,3 +413,5 @@
 2026-07-13T12:39:24	412	docs(testing): how to run unit integration and e2e suites
 2026-07-13T14:45:18	413	test(backend): expand service unit tests for booking and payment
 2026-07-13T15:02:01	414	test(backend): security integration tests for role gates
+2026-07-13T20:59:38	415	test(e2e): Playwright smoke for login search book path
+2026-07-14T09:12:49	416	test(backend): security integration tests for role gates
