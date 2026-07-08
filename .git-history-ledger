@@ -421,3 +421,6 @@
 2026-07-14T11:57:25	420	test(e2e): Playwright smoke for login search book path
 2026-07-14T17:46:25	421	test(frontend): vitest suites for landing and booking flows
 2026-07-14T18:41:44	422	test(backend): security integration tests for role gates
+2026-07-15T09:19:32	423	docs(testing): how to run unit integration and e2e suites
+2026-07-15T14:48:33	424	docs(testing): how to run unit integration and e2e suites
+2026-07-15T15:09:28	425	chore(test): stabilize mocks after ownership injection
