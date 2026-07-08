@@ -426,3 +426,6 @@
 2026-07-15T15:09:28	425	chore(test): stabilize mocks after ownership injection
 2026-07-15T16:27:50	426	test(backend): security integration tests for role gates
 2026-07-15T18:57:47	427	chore(test): stabilize mocks after ownership injection
+2026-07-15T19:27:27	428	test(e2e): Playwright smoke for login search book path
+2026-07-15T19:38:44	429	test(backend): expand service unit tests for booking and payment
+2026-07-15T20:19:24	430	test(backend): expand service unit tests for booking and payment
