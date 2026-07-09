@@ -429,3 +429,5 @@
 2026-07-15T19:27:27	428	test(e2e): Playwright smoke for login search book path
 2026-07-15T19:38:44	429	test(backend): expand service unit tests for booking and payment
 2026-07-15T20:19:24	430	test(backend): expand service unit tests for booking and payment
+2026-07-16T13:00:07	431	test(frontend): vitest suites for landing and booking flows
+2026-07-16T14:05:06	432	test(backend): security integration tests for role gates
