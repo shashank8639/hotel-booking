@@ -437,3 +437,5 @@
 2026-07-16T17:41:42	436	test(backend): expand service unit tests for booking and payment
 2026-07-17T09:16:00	437	test(e2e): Playwright smoke for login search book path
 2026-07-17T12:15:22	438	test(backend): security integration tests for role gates
+2026-07-17T15:01:41	439	docs(testing): how to run unit integration and e2e suites
+2026-07-17T18:22:07	440	test(backend): security integration tests for role gates
