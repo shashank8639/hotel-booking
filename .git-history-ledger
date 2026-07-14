@@ -441,3 +441,7 @@
 2026-07-17T18:22:07	440	test(backend): security integration tests for role gates
 2026-07-17T19:52:17	441	test(e2e): Playwright smoke for login search book path
 2026-07-17T20:10:43	442	test(backend): security integration tests for role gates
+2026-07-18T09:26:48	443	chore(docker): backend and frontend Dockerfiles
+2026-07-18T11:07:06	444	chore(docker): backend and frontend Dockerfiles
+2026-07-18T16:33:59	445	chore(compose): local full-stack docker-compose.yml
+2026-07-18T17:33:27	446	chore(compose): local full-stack docker-compose.yml
