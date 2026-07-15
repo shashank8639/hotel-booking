@@ -445,3 +445,8 @@
 2026-07-18T11:07:06	444	chore(docker): backend and frontend Dockerfiles
 2026-07-18T16:33:59	445	chore(compose): local full-stack docker-compose.yml
 2026-07-18T17:33:27	446	chore(compose): local full-stack docker-compose.yml
+2026-07-18T19:50:45	447	ci: add GitHub Actions workflow for build and test
+2026-07-18T20:31:24	448	ci: add GitHub Actions workflow for build and test
+2026-07-18T21:24:30	449	chore(compose): local full-stack docker-compose.yml
+2026-07-20T10:10:21	450	chore(compose): local full-stack docker-compose.yml
+2026-07-20T12:29:57	451	chore(compose): local full-stack docker-compose.yml

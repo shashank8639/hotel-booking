@@ -1,0 +1,10 @@
+# Maven / backend build context
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+*.log
+.DS_Store

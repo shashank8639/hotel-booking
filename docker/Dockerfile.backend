@@ -1,0 +1,45 @@
+# =============================================================================
+# Backend — multi-stage production image (Java 21 / Spring Boot)
+#
+# Layer-cache strategy (Docker challenge):
+#   1) COPY only pom.xml  →  RUN dependency:go-offline
+#   2) COPY src           →  RUN package
+# Changing Java source does NOT invalidate the dependency download layer.
+#
+# Build:  docker build -f docker/Dockerfile.backend -t hotel-booking-backend ./backend
+# Distroless variant: docker/Dockerfile.backend.distroless
+# =============================================================================
+
+# ----- Stage 1: compile -----
+FROM maven:3.9.9-eclipse-temurin-21 AS build
+WORKDIR /app
+
+# --- Layer A: dependencies only (pom.xml) ---
+COPY pom.xml .
+# go-offline populates local .m2; layer reused until pom.xml changes
+RUN mvn -B -q -DskipTests dependency:go-offline dependency:resolve-plugins
+
+# --- Layer B: sources + package (invalidated on code change) ---
+COPY src ./src
+RUN mvn -B -DskipTests package \
+ && mv target/*.jar /app/app.jar
+
+# ----- Stage 2: runtime (JRE Alpine — good default size/tools balance) -----
+FROM eclipse-temurin:21-jre-alpine
+WORKDIR /app
+
+RUN addgroup -S spring && adduser -S spring -G spring \
+ && apk add --no-cache wget \
+ && mkdir -p /app /tmp \
+ && chown -R spring:spring /app /tmp
+
+USER spring:spring
+
+COPY --from=build --chown=spring:spring /app/app.jar /app/app.jar
+
+EXPOSE 8080
+
+# Writable work dirs when Compose sets read_only: true + tmpfs:/tmp
+ENV JAVA_OPTS="-Djava.io.tmpdir=/tmp"
+
+ENTRYPOINT ["sh", "-c", "java -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 $JAVA_OPTS -jar /app/app.jar"]

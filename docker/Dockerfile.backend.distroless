@@ -1,0 +1,30 @@
+# =============================================================================
+# Backend — Distroless runtime (Docker challenge: smaller / no shell)
+#
+# Distroless = no package manager, no shell, no wget — tiny attack surface.
+# Trade-off: Compose healthchecks cannot `wget` inside the container; probe
+# from another service or use a TCP check from the host/orchestrator.
+#
+# Build:
+#   docker build -f docker/Dockerfile.backend.distroless -t hotel-booking-backend:distroless ./backend
+#
+# Size comparison (approximate, host-dependent):
+#   jre-alpine   ~ 200MB
+#   distroless   ~ 170MB (varies by JRE distroless tag)
+# =============================================================================
+
+FROM maven:3.9.9-eclipse-temurin-21 AS build
+WORKDIR /app
+COPY pom.xml .
+RUN mvn -B -q -DskipTests dependency:go-offline dependency:resolve-plugins
+COPY src ./src
+RUN mvn -B -DskipTests package \
+ && mv target/*.jar /app/app.jar
+
+# Official Distroless Java 21 (Debian-based, nonroot variant)
+FROM gcr.io/distroless/java21-debian12:nonroot
+WORKDIR /app
+COPY --from=build /app/app.jar /app/app.jar
+EXPOSE 8080
+# Distroless ENTRYPOINT is already java — pass jar as args
+CMD ["/app/app.jar"]

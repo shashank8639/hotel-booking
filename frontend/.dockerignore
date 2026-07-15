@@ -1,0 +1,13 @@
+# Frontend / repo-root frontend build context pieces
+node_modules/
+dist/
+coverage/
+.vite/
+*.log
+.DS_Store
+e2e/
+playwright-report/
+test-results/
+.env
+.env.*
+!.env.example
