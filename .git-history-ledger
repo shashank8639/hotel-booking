@@ -450,3 +450,5 @@
 2026-07-18T21:24:30	449	chore(compose): local full-stack docker-compose.yml
 2026-07-20T10:10:21	450	chore(compose): local full-stack docker-compose.yml
 2026-07-20T12:29:57	451	chore(compose): local full-stack docker-compose.yml
+2026-07-20T18:15:13	452	docs(deploy): production checklist and TLS notes
+2026-07-20T18:47:03	453	chore(docker): backend and frontend Dockerfiles
