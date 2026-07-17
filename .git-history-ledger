@@ -459,3 +459,5 @@
 2026-07-21T11:14:00	458	chore(scripts): MySQL backup and deploy helper scripts
 2026-07-21T16:10:40	459	docs(deploy): production checklist and TLS notes
 2026-07-21T17:10:08	460	chore(scripts): MySQL backup and deploy helper scripts
+2026-07-21T17:22:04	461	chore(docker): backend and frontend Dockerfiles
+2026-07-21T17:48:28	462	chore(scripts): MySQL backup and deploy helper scripts
