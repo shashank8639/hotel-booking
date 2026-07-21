@@ -463,3 +463,5 @@
 2026-07-21T17:48:28	462	chore(scripts): MySQL backup and deploy helper scripts
 2026-07-21T19:00:44	463	docs(env): document APP_RAZORPAY and bootstrap admin vars
 2026-07-22T09:46:11	464	chore(docker): backend and frontend Dockerfiles
+2026-07-22T09:52:01	465	ci: add GitHub Actions workflow for build and test
+2026-07-22T14:05:00	466	chore(compose): local full-stack docker-compose.yml
