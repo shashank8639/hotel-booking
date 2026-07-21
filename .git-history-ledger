@@ -461,3 +461,5 @@
 2026-07-21T17:10:08	460	chore(scripts): MySQL backup and deploy helper scripts
 2026-07-21T17:22:04	461	chore(docker): backend and frontend Dockerfiles
 2026-07-21T17:48:28	462	chore(scripts): MySQL backup and deploy helper scripts
+2026-07-21T19:00:44	463	docs(env): document APP_RAZORPAY and bootstrap admin vars
+2026-07-22T09:46:11	464	chore(docker): backend and frontend Dockerfiles
