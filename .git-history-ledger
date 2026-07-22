@@ -469,3 +469,6 @@
 2026-07-22T18:07:44	468	chore(scripts): MySQL backup and deploy helper scripts
 2026-07-22T18:21:25	469	chore(docker): backend and frontend Dockerfiles
 2026-07-22T18:53:48	470	chore(compose): local full-stack docker-compose.yml
+2026-07-23T09:01:02	471	feat(config): production safety runner for JWT and live payments
+2026-07-23T18:30:25	472	docs(learning): reverse-engineering drills after completion
+2026-07-23T18:30:26	473	docs(learning): reverse-engineering drills after completion
