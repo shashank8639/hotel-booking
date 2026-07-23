@@ -472,3 +472,6 @@
 2026-07-23T09:01:02	471	feat(config): production safety runner for JWT and live payments
 2026-07-23T18:30:25	472	docs(learning): reverse-engineering drills after completion
 2026-07-23T18:30:26	473	docs(learning): reverse-engineering drills after completion
+2026-07-23T18:33:32	474	chore(cors): externalize allowed origins for prod
+2026-07-23T20:43:25	475	chore(cors): externalize allowed origins for prod
+2026-07-24T09:53:05	476	docs(production): update go-live checklist with enforced guards
