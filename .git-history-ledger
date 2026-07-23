@@ -475,3 +475,8 @@
 2026-07-23T18:33:32	474	chore(cors): externalize allowed origins for prod
 2026-07-23T20:43:25	475	chore(cors): externalize allowed origins for prod
 2026-07-24T09:53:05	476	docs(production): update go-live checklist with enforced guards
+2026-07-24T12:50:13	477	docs(learning): reverse-engineering drills after completion
+2026-07-24T13:11:23	478	docs(learning): reverse-engineering drills after completion
+2026-07-24T14:59:34	479	docs(learning): reverse-engineering drills after completion
+2026-07-24T15:14:00	480	chore(cors): externalize allowed origins for prod
+2026-07-24T15:15:58	481	feat(config): optional bootstrap admin from environment
