@@ -484,3 +484,4 @@
 2026-07-25T11:14:10	483	refactor(hotel): fix amenity filter pagination totals
 2026-07-25T11:57:09	484	feat(config): optional bootstrap admin from environment
 2026-07-25T14:37:04	485	feat(config): optional bootstrap admin from environment
+2026-07-25T16:44:59	486	refactor(hotel): fix amenity filter pagination totals
