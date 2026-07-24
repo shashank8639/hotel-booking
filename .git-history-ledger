@@ -481,3 +481,4 @@
 2026-07-24T15:14:00	480	chore(cors): externalize allowed origins for prod
 2026-07-24T15:15:58	481	feat(config): optional bootstrap admin from environment
 2026-07-24T19:21:05	482	docs(readme): mark Module 16 StayFinder status and readiness
+2026-07-25T11:14:10	483	refactor(hotel): fix amenity filter pagination totals
