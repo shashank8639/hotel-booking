@@ -487,3 +487,4 @@
 2026-07-25T16:44:59	486	refactor(hotel): fix amenity filter pagination totals
 2026-07-25T21:12:48	487	chore(cors): externalize allowed origins for prod
 2026-07-27T09:13:34	488	refactor(hotel): fix amenity filter pagination totals
+2026-07-27T09:58:45	489	feat(config): optional bootstrap admin from environment
