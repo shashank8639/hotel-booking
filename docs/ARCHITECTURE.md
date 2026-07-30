@@ -28,18 +28,20 @@ This is a **full-stack, production-oriented** hotel booking platform. The codeba
 
 ## Backend Package Structure
 
-| Package | Responsibility |
-|---------|----------------|
-| `config` | Cross-cutting Spring configuration (Security, CORS, OpenAPI, JWT props) |
-| `controller` | REST endpoints — HTTP in/out only |
-| `service` | Business logic and transaction boundaries |
-| `repository` | Database access via JPA |
-| `entity` | JPA/Hibernate domain models mapped to DB tables |
-| `dto` | Data Transfer Objects — API contract, decoupled from entities |
-| `mapper` | MapStruct interfaces for Entity ↔ DTO conversion |
-| `security` | JWT filters, UserDetails, authentication helpers |
-| `exception` | Global exception handling, custom error types |
-| `util` | Shared helpers (dates, constants) |
+| Package | Responsibility | Module |
+|---------|----------------|--------|
+| `config` | Cross-cutting Spring configuration (Security, CORS, OpenAPI, JWT props) | 1 |
+| `database` | Domain enums (`BookingStatus`, `RoomType`, …) | 2 |
+| `entity` | JPA/Hibernate domain models mapped to DB tables | 2 |
+| `repository` | Spring Data JPA repository interfaces | 2 |
+| `migration` | Flyway documentation; SQL scripts in `resources/db/migration/` | 2 |
+| `controller` | REST endpoints — HTTP in/out only | 4 |
+| `service` | Business logic and transaction boundaries | 3 |
+| `dto` | Data Transfer Objects — API contract, decoupled from entities | 4 |
+| `mapper` | MapStruct interfaces for Entity ↔ DTO conversion | 4 |
+| `security` | JWT filters, UserDetails, authentication helpers | 5 |
+| `exception` | Global exception handling, custom error types | 4 |
+| `util` | Shared helpers (dates, constants) | — |
 
 ## Frontend Folder Structure
 
@@ -61,15 +63,32 @@ This is a **full-stack, production-oriented** hotel booking platform. The codeba
 4. **Configuration externalization** — Secrets and URLs via environment variables.
 5. **Profile-based config** — `dev`, `test`, `prod` profiles for different environments.
 
+See [MODULES.md](MODULES.md) for the incremental learning path across all 8 modules.
+
+## Persistence Layer (Module 2 — Complete)
+
+Five entities model the core booking domain:
+
+```
+Guest (1) ──< Booking (1) ──< BookingRoom (N) >── Room
+                  │
+                  └──< Payment
+```
+
+- **SQL migrations:** `backend/src/main/resources/db/migration/V1__create_tables.sql`
+- **Full database docs:** [DATABASE.md](DATABASE.md)
+
+Key design choices: `BigDecimal` for money, `LocalDate` for stay dates, lazy fetching on all relationships, price snapshot on `booking_rooms`.
+
 ## Module Roadmap
 
-| Module | Focus |
-|--------|-------|
-| 1 | Project structure (current) |
-| 2 | Database design & JPA entities |
-| 3 | Repositories & basic CRUD services |
-| 4 | REST controllers & DTOs |
-| 5 | JWT authentication & authorization |
-| 6 | Booking business logic |
-| 7 | React UI pages & API integration |
-| 8 | Docker production setup & deployment |
+| Module | Focus | Status |
+|--------|-------|-------|
+| 1 | Project structure |  Done |
+| 2 | Database design & JPA entities |  Done |
+| 3 | Service layer & transactions | Next |
+| 4 | REST controllers & DTOs | Planned |
+| 5 | JWT authentication & authorization | Planned |
+| 6 | Booking business logic | Planned |
+| 7 | React UI pages & API integration | Planned |
+| 8 | Docker production setup & deployment | Planned |

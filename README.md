@@ -2,13 +2,13 @@
 
 A production-ready, full-stack hotel booking platform built with **Spring Boot 3** (Java 21) and **React 18**.
 
-> **Module 1 Status:** Project skeleton only — no business logic, entities, or APIs yet.
+> **Module 2 Status:** Persistence layer complete — entities, repositories, and Flyway SQL migrations. No services, controllers, or APIs yet.
 
 ## Tech Stack
 
 | Layer | Technologies |
 |-------|-------------|
-| Backend | Java 21, Spring Boot 3.3, Spring Data JPA, Spring Security, JWT, MySQL 8, Maven, Lombok, MapStruct, Swagger |
+| Backend | Java 21, Spring Boot 3.x, Spring Data JPA, Hibernate, Spring Security, JWT, MySQL 8, Flyway (SQL ready), Maven, Lombok, MapStruct, Swagger |
 | Frontend | React 18, Vite, Material UI, React Router, Axios |
 | DevOps | Docker, Docker Compose |
 
@@ -16,14 +16,23 @@ A production-ready, full-stack hotel booking platform built with **Spring Boot 3
 
 ```
 hotel-booking/
-├── backend/          # Spring Boot REST API
+├── backend/
+│   └── src/main/
+│       ├── java/com/hotelbooking/
+│       │   ├── database/     # Domain enums (BookingStatus, RoomType, …)
+│       │   ├── entity/       # JPA entities (Guest, Room, Booking, …)
+│       │   ├── repository/   # Spring Data JPA repositories
+│       │   └── migration/    # Flyway package (SQL in resources)
+│       └── resources/db/migration/   # V1 schema, V2 seed data
 ├── frontend/         # React SPA
 ├── docker/           # Dockerfiles & Nginx config
-├── docs/             # Architecture documentation
+├── docs/             # Architecture & database documentation
 └── docker-compose.yml
 ```
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for detailed architecture.
+- [docs/MODULES.md](docs/MODULES.md) — learning module index and progress
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — system architecture
+- [docs/DATABASE.md](docs/DATABASE.md) — schema, ER diagram, migration guide
 
 ## Prerequisites
 
@@ -35,7 +44,19 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for detailed architecture.
 
 ## Quick Start (Local Development)
 
-### 1. Backend
+### 1. Database (required before backend against MySQL)
+
+`application.yml` uses `ddl-auto: validate`, so tables must exist before startup:
+
+```bash
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS hotel_booking;"
+mysql -u root -p hotel_booking < backend/src/main/resources/db/migration/V1__create_tables.sql
+mysql -u root -p hotel_booking < backend/src/main/resources/db/migration/V2__seed_sample_data.sql   # optional
+```
+
+See [docs/DATABASE.md](docs/DATABASE.md) for full details.
+
+### 2. Backend
 
 ```bash
 cd backend
@@ -45,7 +66,7 @@ mvn spring-boot:run
 API base URL: `http://localhost:8080/api`  
 Swagger UI: `http://localhost:8080/api/swagger-ui.html`
 
-### 2. Frontend
+### 3. Frontend
 
 ```bash
 cd frontend
@@ -56,7 +77,7 @@ npm run dev
 
 App URL: `http://localhost:5173`
 
-### 3. Full Stack with Docker
+### 4. Full Stack with Docker
 
 ```bash
 cp .env.example .env
@@ -81,16 +102,18 @@ docker compose up --build
 
 ## Learning Modules
 
-This project is built incrementally:
+This project is built incrementally across 8 modules. See **[docs/MODULES.md](docs/MODULES.md)** for the full index, deliverables, and progress tracker.
 
-1. **Module 1** — Project structure *(current)*
-2. **Module 2** — Database design & JPA entities
-3. **Module 3** — Repositories & services
-4. **Module 4** — REST APIs & DTOs
-5. **Module 5** — JWT authentication
-6. **Module 6** — Booking business logic
-7. **Module 7** — React UI
-8. **Module 8** — Production deployment
+| # | Module | Status |
+|---|--------|--------|
+| 1 | Project structure | ✅ |
+| 2 | Database design & JPA entities | ✅ *(current)* |
+| 3 | Service layer & business logic | 🔜 Next |
+| 4 | REST APIs & DTOs | ⬜ |
+| 5 | JWT authentication | ⬜ |
+| 6 | Booking business logic | ⬜ |
+| 7 | React UI | ⬜ |
+| 8 | Production deployment | ⬜ |
 
 ## License
 
