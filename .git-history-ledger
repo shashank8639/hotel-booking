@@ -491,3 +491,5 @@
 2026-07-27T13:14:25	490	chore(cors): externalize allowed origins for prod
 2026-07-27T16:16:38	491	chore(cors): externalize allowed origins for prod
 2026-07-27T19:02:20	492	feat(config): production safety runner for JWT and live payments
+2026-07-27T19:33:41	493	docs(learning): reverse-engineering drills after completion
+2026-07-27T20:35:22	494	docs(learning): reverse-engineering drills after completion
