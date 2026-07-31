@@ -1,0 +1,57 @@
+# ==========================
+# Maven / Spring Boot
+# ==========================
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+
+# ==========================
+# Eclipse
+# ==========================
+backend/.classpath
+backend/.project
+backend/.settings/
+
+# ==========================
+# VS Code / IntelliJ
+# ==========================
+.vscode/
+.idea/
+*.iml
+
+# ==========================
+# macOS / Windows
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# Logs
+# ==========================
+*.log
+logs/
+
+# ==========================
+# Environment / Secrets
+# ==========================
+.env
+.env.local
+.env.*.local
+backend/src/main/resources/application-local.yml
+
+# ==========================
+# Frontend (React / Vite)
+# ==========================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# ==========================
+# Docker Local Data
+# ==========================
+docker/mysql-data/
+
+# ==========================
+# Eclipse Workspace Metadata
+# ==========================
+.metadata/
+RemoteSystemsTempFiles/
