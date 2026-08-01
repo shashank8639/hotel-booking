@@ -115,6 +115,8 @@ Tests use H2 in-memory with `ddl-auto: create-drop` — no MySQL required for `m
 5. **ON DELETE CASCADE** on `booking_rooms` and `payments` — line items and payments tied to booking lifecycle.
 6. **FetchType.LAZY** on all relationships — performance best practice; explicit fetch joins in services when needed.
 
-## Next Module
+## Related Modules
 
-Module 3 will add the **Service layer** — business logic and `@Transactional` boundaries on top of these repositories.
+- **Module 3** — Auth tables (`users`, `roles`, `refresh_tokens`, …) in `V4__create_auth_tables.sql` — see [SECURITY.md](SECURITY.md)
+- **Module 4** — Guest Management APIs on top of `guests` — see [GUESTS.md](GUESTS.md)
+- **Module 5 (next)** — Room Management APIs on top of `rooms`

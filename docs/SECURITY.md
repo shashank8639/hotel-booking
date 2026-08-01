@@ -10,8 +10,8 @@
 | SecurityConfig (RBAC, stateless) | Done |
 | Swagger JWT bearer scheme | Done (Module 1 OpenApiConfig) |
 | Flyway V4 auth tables | Done |
-| Auth REST endpoints (login/register) | Module 4 |
-| Auth services | Module 4 |
+| Auth REST endpoints (login/register) | Planned (later module) |
+| Auth services | Planned (later module) |
 
 ## Apply Migration
 

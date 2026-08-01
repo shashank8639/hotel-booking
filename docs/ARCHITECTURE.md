@@ -30,16 +30,16 @@ This is a **full-stack, production-oriented** hotel booking platform. The codeba
 
 | Package | Responsibility | Module |
 |---------|----------------|--------|
-| `config` | Cross-cutting Spring configuration (Security, CORS, OpenAPI, JWT props) | 1 |
+| `config` | Cross-cutting Spring configuration (Security, CORS, OpenAPI, JWT props) | 1 / 3 |
 | `database` | Domain enums (`BookingStatus`, `RoomType`, …) | 2 |
-| `entity` | JPA/Hibernate domain models mapped to DB tables | 2 |
-| `repository` | Spring Data JPA repository interfaces | 2 |
-| `migration` | Flyway documentation; SQL scripts in `resources/db/migration/` | 2 |
+| `entity` | JPA domain models (Guest, Room, Booking, User, …) | 2 / 3 |
+| `repository` | Spring Data JPA repository interfaces | 2 / 3 / 4 |
+| `migration` | Flyway documentation; SQL scripts in `resources/db/migration/` | 2 / 3 |
+| `security` | JWT filters, UserDetails, token utilities | 3 |
 | `controller` | REST endpoints — HTTP in/out only | 4 |
-| `service` | Business logic and transaction boundaries | 3 |
+| `service` | Business logic and transaction boundaries | 4 |
 | `dto` | Data Transfer Objects — API contract, decoupled from entities | 4 |
 | `mapper` | MapStruct interfaces for Entity ↔ DTO conversion | 4 |
-| `security` | JWT filters, UserDetails, authentication helpers | 5 |
 | `exception` | Global exception handling, custom error types | 4 |
 | `util` | Shared helpers (dates, constants) | — |
 
@@ -80,15 +80,31 @@ Guest (1) ──< Booking (1) ──< BookingRoom (N) >── Room
 
 Key design choices: `BigDecimal` for money, `LocalDate` for stay dates, lazy fetching on all relationships, price snapshot on `booking_rooms`.
 
+## Security Layer (Module 3 — Complete)
+
+Stateless JWT authentication with RBAC (`ADMIN`, `CUSTOMER`), refresh tokens, and BCrypt password hashing.
+
+- **Docs:** [SECURITY.md](SECURITY.md)
+- **Migration:** `V4__create_auth_tables.sql`
+
+## Guest Management (Module 4 — Complete)
+
+First production REST domain: Guest CRUD, validation, pagination, search, unit tests.
+
+- **Docs:** [GUESTS.md](GUESTS.md)
+- **Endpoints:** `/api/guests`
+
 ## Module Roadmap
 
 | Module | Focus | Status |
-|--------|-------|-------|
-| 1 | Project structure |  Done |
-| 2 | Database design & JPA entities |  Done |
-| 3 | Service layer & transactions | Next |
-| 4 | REST controllers & DTOs | Planned |
-| 5 | JWT authentication & authorization | Planned |
+|--------|-------|--------|
+| 1 | Project structure | ✅ Done |
+| 2 | Database design & JPA entities | ✅ Done |
+| 3 | Security & JWT authentication | ✅ Done |
+| 4 | Guest Management (CRUD APIs) | ✅ Done |
+| 5 | Room Management | 🔜 Next |
 | 6 | Booking business logic | Planned |
 | 7 | React UI pages & API integration | Planned |
 | 8 | Docker production setup & deployment | Planned |
+
+See [MODULES.md](MODULES.md) for the full learning path.

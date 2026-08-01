@@ -2,7 +2,7 @@
 
 A production-ready, full-stack hotel booking platform built with **Spring Boot 3** (Java 21) and **React 18**.
 
-> **Module 2 Status:** Persistence layer complete — entities, repositories, and Flyway SQL migrations. No services, controllers, or APIs yet.
+> **Module 4 Status:** Guest Management complete — CRUD APIs, validation, pagination, search, and unit tests. Security/JWT infrastructure from Module 3 is in place.
 
 ## Tech Stack
 
@@ -33,6 +33,8 @@ hotel-booking/
 - [docs/MODULES.md](docs/MODULES.md) — learning module index and progress
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — system architecture
 - [docs/DATABASE.md](docs/DATABASE.md) — schema, ER diagram, migration guide
+- [docs/SECURITY.md](docs/SECURITY.md) — JWT, RBAC, auth tables (Module 3)
+- [docs/GUESTS.md](docs/GUESTS.md) — Guest Management APIs (Module 4)
 
 ## Prerequisites
 
@@ -106,11 +108,11 @@ This project is built incrementally across 8 modules. See **[docs/MODULES.md](do
 
 | # | Module | Status |
 |---|--------|--------|
-| 1 | Project structure | Done |
-| 2 | Database design & JPA entities | Done *(current)* |
-| 3 | Service layer & business logic |  Next |
-| 4 | REST APIs & DTOs | ⬜ |
-| 5 | JWT authentication | ⬜ |
+| 1 | Project structure | ✅ |
+| 2 | Database design & JPA entities | ✅ |
+| 3 | Security & JWT authentication | ✅ |
+| 4 | Guest Management (CRUD APIs) | ✅ *(current)* |
+| 5 | Room Management | 🔜 Next |
 | 6 | Booking business logic | ⬜ |
 | 7 | React UI | ⬜ |
 | 8 | Production deployment | ⬜ |
