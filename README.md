@@ -2,7 +2,7 @@
 
 A production-ready, full-stack hotel booking platform built with **Spring Boot 3** (Java 21) and **React 18**.
 
-> **Module 4 Status:** Guest Management complete — CRUD APIs, validation, pagination, search, and unit tests. Security/JWT infrastructure from Module 3 is in place.
+> **Module 5 Status:** Room Management complete — public catalog + admin CRUD, pricing, availability, image metadata, search, pagination, and unit tests.
 
 ## Tech Stack
 
@@ -30,11 +30,14 @@ hotel-booking/
 └── docker-compose.yml
 ```
 
-- [docs/MODULES.md](docs/MODULES.md) — learning module index and progress
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — system architecture
-- [docs/DATABASE.md](docs/DATABASE.md) — schema, ER diagram, migration guide
-- [docs/SECURITY.md](docs/SECURITY.md) — JWT, RBAC, auth tables (Module 3)
-- [docs/GUESTS.md](docs/GUESTS.md) — Guest Management APIs (Module 4)
+**Docs are written as a teaching guide** (why → where in code → try this → interview warmup):
+
+- [docs/MODULES.md](docs/MODULES.md) — start here: learning path & how to study
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — system map (layers & packages)
+- [docs/DATABASE.md](docs/DATABASE.md) — Module 2: schema & entities
+- [docs/SECURITY.md](docs/SECURITY.md) — Module 3: JWT & security walkthrough
+- [docs/GUESTS.md](docs/GUESTS.md) — Module 4: Guest CRUD guided tour
+- [docs/ROOMS.md](docs/ROOMS.md) — Module 5: Room Management guided tour
 
 ## Prerequisites
 
@@ -104,15 +107,19 @@ docker compose up --build
 
 ## Learning Modules
 
-This project is built incrementally across 8 modules. See **[docs/MODULES.md](docs/MODULES.md)** for the full index, deliverables, and progress tracker.
+This project is built **module by module as a mentored learning path** — not a dump of finished code.
+
+1. Open **[docs/MODULES.md](docs/MODULES.md)**  
+2. Open that module’s guide (e.g. [GUESTS.md](docs/GUESTS.md))  
+3. Follow: read → open listed files → do “Try this” → interview warmup  
 
 | # | Module | Status |
 |---|--------|--------|
 | 1 | Project structure | ✅ |
 | 2 | Database design & JPA entities | ✅ |
 | 3 | Security & JWT authentication | ✅ |
-| 4 | Guest Management (CRUD APIs) | ✅ *(current)* |
-| 5 | Room Management | 🔜 Next |
+| 4 | Guest Management (CRUD APIs) | ✅ |
+| 5 | Room Management | ✅ *(current)* |
 | 6 | Booking business logic | ⬜ |
 | 7 | React UI | ⬜ |
 | 8 | Production deployment | ⬜ |

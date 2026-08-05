@@ -1,8 +1,19 @@
-# Hotel Booking System — Architecture
+# Architecture Guide — How the System Fits Together
+
+Read this when you feel lost in folders. It is the **map of the city**, not every street.
+
+**How to use it:**
+1. Look at the layer diagram — say out loud what each layer is for  
+2. Match packages in the table to folders on disk  
+3. When you add a feature, ask: *“Which layer does this change belong in?”*
+
+Detailed teaching for each module lives in [MODULES.md](MODULES.md).
+
+---
 
 ## Overview
 
-This is a **full-stack, production-oriented** hotel booking platform. The codebase follows **layered / clean architecture** principles so each concern stays isolated and testable.
+This is a **full-stack, production-oriented** hotel booking platform. The codebase follows **layered / clean architecture** so each concern stays isolated and testable — the same style used in most Spring Boot teams.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐

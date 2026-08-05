@@ -1,7 +1,7 @@
 package com.hotelbooking.exception;
 
-import jakarta.validation.ConstraintViolationException;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +17,12 @@ import java.util.stream.Collectors;
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(ApiException.class)
+    public ResponseEntity<ErrorResponse> handleApiException(ApiException ex, HttpServletRequest request) {
+        log.warn("{}: {}", ex.getStatus(), ex.getMessage());
+        return buildResponse(ex.getStatus(), ex.getMessage(), request.getRequestURI(), null);
+    }
 
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<ErrorResponse> handleConstraintViolation(
@@ -37,33 +43,6 @@ public class GlobalExceptionHandler {
                 request.getRequestURI(),
                 validationErrors
         );
-    }
-
-    @ExceptionHandler(GuestNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleGuestNotFound(
-            GuestNotFoundException ex,
-            HttpServletRequest request
-    ) {
-        log.warn("Guest not found: {}", ex.getMessage());
-        return buildResponse(HttpStatus.NOT_FOUND, ex.getMessage(), request.getRequestURI(), null);
-    }
-
-    @ExceptionHandler(DuplicateGuestException.class)
-    public ResponseEntity<ErrorResponse> handleDuplicateGuest(
-            DuplicateGuestException ex,
-            HttpServletRequest request
-    ) {
-        log.warn("Duplicate guest: {}", ex.getMessage());
-        return buildResponse(HttpStatus.CONFLICT, ex.getMessage(), request.getRequestURI(), null);
-    }
-
-    @ExceptionHandler(GuestHasBookingsException.class)
-    public ResponseEntity<ErrorResponse> handleGuestHasBookings(
-            GuestHasBookingsException ex,
-            HttpServletRequest request
-    ) {
-        log.warn("Guest deletion blocked: {}", ex.getMessage());
-        return buildResponse(HttpStatus.CONFLICT, ex.getMessage(), request.getRequestURI(), null);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

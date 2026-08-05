@@ -1,16 +1,32 @@
-# Database Design — Module 2
+# Module 2 Guide — Database Design (Learn the Foundation)
 
-This document describes the persistence layer: schema, entities, relationships, and migration setup.
+Before services and APIs, we designed the **data model**. Seniors do this first because every feature later depends on it.
 
-## Status
+**Mentor question to keep asking:**  
+*“If I delete this row, what else breaks? If I change this price, should old bookings change too?”*
+
+Those questions led to foreign keys, `ON DELETE RESTRICT`/`CASCADE`, and the price snapshot on `booking_rooms`.
+
+**How to study this module:**
+1. Sketch the ER diagram from memory  
+2. Open each entity and match fields to SQL columns  
+3. Apply V1 (and V2/V3 if needed) on MySQL and run `SHOW TABLES`  
+4. Only then move to Security (Module 3) and Guest APIs (Module 4)
+
+Learning path: [MODULES.md](MODULES.md)
+
+---
+
+## What you built (checklist)
 
 | Item | Status |
 |------|--------|
 | SQL schema (`V1__create_tables.sql`) | Done |
 | Sample seed data (`V2__seed_sample_data.sql`) | Done |
-| JPA entities (5) | Done |
-| Spring Data repositories (5) | Done |
-| Flyway dependency in `pom.xml` | Pending (future module) |
+| Optimistic locking + index (`V3`) | Done |
+| JPA entities (5 core booking entities) | Done |
+| Spring Data repositories | Done |
+| Flyway dependency auto-run in `pom.xml` | Pending (later) |
 
 ## Entity Relationship Diagram
 

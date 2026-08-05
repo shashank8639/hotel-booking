@@ -1,250 +1,224 @@
-# Learning Modules Index
+# Your Learning Path — Hotel Booking System
 
-This project is built **incrementally across 8 modules**. Each module adds one layer of the application. Use this page as your navigation hub.
+Welcome. This is not just a project dump — it is a **guided path** to become capable of building enterprise Java full-stack apps on your own.
 
-**Current progress:** Module 4 complete — Guest Management APIs in place.
+Read this file first. Then open the module docs in order. Each doc teaches *why*, then shows *where in the code*, then tells you *what to try next*.
 
 ---
 
-## Quick Navigation
+## How to use these docs
 
-| Module | Topic | Status | Documentation |
-|--------|-------|--------|---------------|
-| [1](#module-1--project-structure) | Project structure | ✅ Done | [ARCHITECTURE.md](ARCHITECTURE.md) |
-| [2](#module-2--database-design--jpa-entities) | Database & JPA entities | ✅ Done | [DATABASE.md](DATABASE.md) |
-| [3](#module-3--security--jwt-authentication) | Security & JWT authentication | ✅ Done | [SECURITY.md](SECURITY.md) |
-| [4](#module-4--guest-management) | Guest Management (CRUD APIs) | ✅ Done *(current)* | [GUESTS.md](GUESTS.md) |
-| [5](#module-5--room-management) | Room Management | 🔜 Next | *(coming)* |
-| [6](#module-6--booking-business-logic) | Booking business logic | ⬜ Planned | *(coming)* |
-| [7](#module-7--react-ui) | React UI | ⬜ Planned | *(coming)* |
-| [8](#module-8--production-deployment) | Production deployment | ⬜ Planned | *(coming)* |
+Think of each module like a chapter with a mentor sitting beside you:
+
+1. **Read the “Why this exists” section** before opening the code  
+2. **Open the files listed** and compare them to the explanation  
+3. **Do the “Try this” exercises** yourself  
+4. **Answer the interview questions** out loud (or write them down)  
+5. Only then move to the next module  
+
+Do **not** skip ahead. Later modules assume you understand earlier ones.
+
+---
+
+## Where you are now
+
+| Module | What you built | Guide |
+|--------|----------------|-------|
+| 1 | Project skeleton | [ARCHITECTURE.md](ARCHITECTURE.md) |
+| 2 | Database & entities | [DATABASE.md](DATABASE.md) |
+| 3 | Security & JWT | [SECURITY.md](SECURITY.md) |
+| 4 | Guest Management APIs | [GUESTS.md](GUESTS.md) |
+| 5 | Room Management | [ROOMS.md](ROOMS.md) ← **you are here** |
+| 6–8 | Booking, React, Deploy | Later |
+
+---
+
+## The big picture (keep this in your head)
+
+```
+You are building a hotel system the way companies do it:
+
+  Module 1  →  Empty house (folders, tools, Docker)
+  Module 2  →  Foundation (tables & Java entities)
+  Module 3  →  Front door lock (who can enter — JWT/security)
+  Module 4  →  First real room (Guest CRUD APIs)
+  Module 5  →  Inventory (Rooms)
+  Module 6  →  Business of booking
+  Module 7  →  Website (React)
+  Module 8  →  Ship to production
+```
+
+Every request will eventually travel like this:
+
+```
+Browser → React → Axios → Controller → Service → Repository → MySQL
+                              ↑
+                     Security filter checks JWT first
+```
 
 ---
 
 ## Module 1 — Project Structure
 
-**Status:** ✅ Complete
+**Status:** Done  
 
-**Goal:** Bootstrap a production-ready full-stack project skeleton with no business logic.
+**Mentor note:** You set up the *workshop* before building the furniture. That is how senior engineers start — structure first, features later.
 
-**Deliverables:**
+**What to open:**
+- `backend/pom.xml` — what libraries the project depends on  
+- `backend/src/main/resources/application.yml` — how the app is configured  
+- `docker-compose.yml` — how MySQL + API + UI can run together  
 
-| Item | Location |
-|------|----------|
-| Maven `pom.xml` with dependencies | `backend/pom.xml` |
-| Spring Boot configuration | `backend/src/main/resources/application.yml` |
-| Config skeletons (Security, CORS, OpenAPI, JWT props) | `backend/src/main/java/com/hotelbooking/config/` |
-| React + Vite frontend shell | `frontend/` |
-| Docker Compose skeleton | `docker-compose.yml`, `docker/` |
-| Architecture overview | [ARCHITECTURE.md](ARCHITECTURE.md) |
+**What you should be able to explain:**
+- Why backend and frontend are separate folders  
+- What Maven does  
+- Why we use `application.yml` instead of hardcoding values  
 
-**What you learned:** Maven, Spring Boot auto-configuration, layered package structure, Docker basics, environment-based config.
-
-**Interview focus:** Spring Boot startup, `@SpringBootApplication`, Maven lifecycle, why separate frontend/backend.
+**Guide:** [ARCHITECTURE.md](ARCHITECTURE.md)
 
 ---
 
-## Module 2 — Database Design & JPA Entities
+## Module 2 — Database & JPA Entities
 
-**Status:** ✅ Complete
+**Status:** Done  
 
-**Goal:** Design and implement the persistence layer — schema, entities, repositories.
+**Mentor note:** Business logic without a solid data model is fragile. We designed tables and relationships *before* writing services.
 
-**Deliverables:**
+**What to open:**
+- `entity/Guest.java`, `Booking.java`, `Room.java`  
+- `db/migration/V1__create_tables.sql`  
+- `repository/` interfaces  
 
-| Item | Location |
-|------|----------|
-| Flyway schema migration | `backend/src/main/resources/db/migration/V1__create_tables.sql` |
-| Sample seed data | `backend/src/main/resources/db/migration/V2__seed_sample_data.sql` |
-| Optimistic locking + index | `V3__add_booking_version_and_index.sql` |
-| JPA entities (Guest, Room, Booking, BookingRoom, Payment) | `backend/src/main/java/com/hotelbooking/entity/` |
-| Domain enums | `backend/src/main/java/com/hotelbooking/database/` |
-| Repository interfaces | `backend/src/main/java/com/hotelbooking/repository/` |
-| Database documentation | [DATABASE.md](DATABASE.md) |
+**What you should be able to explain:**
+- Entity vs table  
+- `@ManyToOne` owning side vs `mappedBy`  
+- Why `BigDecimal` for money and `LocalDate` for dates  
+- Why Flyway (or SQL scripts) beat `ddl-auto=update` in production  
 
-**What you learned:** ER design, JPA relationships, LAZY loading, BigDecimal for money, Flyway migrations, Spring Data query methods.
+**Guide:** [DATABASE.md](DATABASE.md)
 
-**Interview focus:** Entity lifecycle, `@ManyToOne` vs `@OneToMany`, cascade types, N+1 problem, `ddl-auto` strategies.
+**Try this:**
+1. Draw the ER diagram from memory  
+2. Explain why `BookingRoom` exists (hint: price snapshot)  
 
 ---
 
 ## Module 3 — Security & JWT Authentication
 
-**Status:** ✅ Complete
+**Status:** Done  
 
-**Goal:** Implement the authentication and authorization infrastructure (stateless JWT, RBAC, refresh tokens).
+**Mentor note:** We locked the API *before* adding many endpoints. In real companies, security is not an afterthought.
 
-**Deliverables:**
+**What you built (infrastructure, not login UI yet):**
+- JWT create/validate (`JwtService`)  
+- Filter that reads `Authorization: Bearer ...`  
+- Roles: ADMIN / CUSTOMER  
+- Tables: `users`, `roles`, `refresh_tokens`, `password_reset_tokens`  
 
-| Item | Location |
-|------|----------|
-| User, Role, RefreshToken, PasswordResetToken entities | `backend/src/main/java/com/hotelbooking/entity/` |
-| Auth repositories | `UserRepository`, `RoleRepository`, `RefreshTokenRepository`, … |
-| JWT service, filter, entry point | `backend/src/main/java/com/hotelbooking/security/` |
-| SecurityConfig (RBAC, stateless) | `backend/src/main/java/com/hotelbooking/config/SecurityConfig.java` |
-| Flyway V4 auth tables | `backend/src/main/resources/db/migration/V4__create_auth_tables.sql` |
-| Security documentation | [SECURITY.md](SECURITY.md) |
+**Important:** Login/register *HTTP endpoints* are not wired yet. The *engine* is ready; the *steering wheel* (AuthController) comes later.
 
-**Not in this module (planned later):** Auth REST endpoints (`/auth/login`, `/auth/register`) and AuthService — wired when API layer expands.
+**Guide:** [SECURITY.md](SECURITY.md) — written as a walkthrough.
 
-**What you learned:** Authentication vs authorization, JWT structure, filter chain, BCrypt, RBAC, refresh tokens.
-
-**Interview focus:** Session vs JWT, `UserDetailsService`, `SecurityFilterChain`, role vs authority, OWASP auth risks.
+**Try this:**
+1. Trace one request through `JwtAuthenticationFilter` on paper  
+2. Explain access token vs refresh token to a friend  
 
 ---
 
 ## Module 4 — Guest Management
 
-**Status:** ✅ Complete *(current)*
+**Status:** Done  
 
-**Goal:** Production-ready Guest CRUD APIs with validation, pagination, sorting, search, and unit tests.
+**Mentor note:** This is your first full vertical slice: **Controller → Service → Repository → Database**, with validation, pagination, search, and tests.
 
-**Deliverables:**
-
-| Item | Location |
-|------|----------|
-| GuestRepository (search methods) | `backend/src/main/java/com/hotelbooking/repository/GuestRepository.java` |
-| GuestService + GuestServiceImpl | `backend/src/main/java/com/hotelbooking/service/` |
-| GuestController | `backend/src/main/java/com/hotelbooking/controller/GuestController.java` |
-| GuestRequest / GuestResponse DTOs | `backend/src/main/java/com/hotelbooking/dto/` |
-| GuestMapper (MapStruct) | `backend/src/main/java/com/hotelbooking/mapper/GuestMapper.java` |
-| Global exception handler | `backend/src/main/java/com/hotelbooking/exception/` |
-| Unit tests (repo, service, controller) | `backend/src/test/java/com/hotelbooking/` |
-| Guest API documentation | [GUESTS.md](GUESTS.md) |
-
-**What you learned:** Layered CRUD, Bean Validation, pagination/sorting, search APIs, MapStruct, MockMvc/Mockito testing.
-
-**Interview focus:** DTO vs entity, `Pageable`, `@Valid`, HTTP status codes, thin controllers, service business rules.
+**Guide:** [GUESTS.md](GUESTS.md)
 
 ---
 
-## Module 5 — Room Management
+## Module 5 — Room Management (current)
 
-**Status:** 🔜 Next
+**Status:** Done  
 
-**Goal:** CRUD + search for rooms (room number, type, price, status) — inventory for bookings.
+**Mentor note:** Same layered pattern as Guests, plus pricing, availability state machine, image metadata, and **admin vs public** API split.
 
-**Planned deliverables:**
+**What to open:**
+- `controller/RoomController.java` + `AdminRoomController.java`  
+- `service/impl/RoomServiceImpl.java` — transitions + pricing rules  
+- `entity/RoomImage.java` — URL-based images  
+- `db/migration/V5__room_management_enhancements.sql`  
 
-| Item | Location |
-|------|----------|
-| RoomService, RoomController, Room DTOs | `service/`, `controller/`, `dto/` |
-| Room search by type/status | Repository + APIs |
-| Room documentation | `docs/ROOMS.md` *(planned)* |
+**Guide:** [ROOMS.md](ROOMS.md)
 
-**What you'll learn:** Inventory APIs, enum filters, uniqueness on room number, linking rooms to bookings later.
+**Try this:**
+1. Trace `AVAILABLE → RESERVED` in the service  
+2. Call `GET /api/rooms/search` with two filters  
+3. Run Room unit tests  
 
-**Interview focus:** Soft delete vs hard delete, availability vs status fields.
+**Why after Guest?**  
+A booking needs a **guest** and a **room**. Guest APIs first, room inventory second, then booking logic.
 
 ---
 
 ## Module 6 — Booking Business Logic
 
-**Status:** ⬜ Planned
-
-**Goal:** Implement core hotel booking rules — availability, conflicts, pricing, status transitions.
-
-**Planned deliverables:**
-
-| Item | Location |
-|------|----------|
-| Availability checking | `BookingService` |
-| Date overlap validation | Booking rules |
-| Price calculation | Booking + BookingRoom logic |
-| Booking status workflow | PENDING → CONFIRMED → CHECKED_IN → CHECKED_OUT |
-| Business logic documentation | `docs/BOOKING.md` *(planned)* |
-
-**What you'll learn:** Domain-driven design basics, complex queries, transaction isolation, optimistic locking.
-
-**Interview focus:** Handling concurrent bookings, date range overlap SQL, aggregate design.
+Here the real hotel rules appear: date overlap, availability, pricing, status transitions. Modules 2–5 make this possible.
 
 ---
 
 ## Module 7 — React UI
 
-**Status:** ⬜ Planned
-
-**Goal:** Build the frontend — search, book, manage reservations, auth screens.
-
-**Planned deliverables:**
-
-| Item | Location |
-|------|----------|
-| Pages (Home, Search, Booking, Login, Dashboard) | `frontend/src/pages/` |
-| Reusable components | `frontend/src/components/` |
-| Axios API clients | `frontend/src/services/` |
-| Auth context & protected routes | `frontend/src/context/` |
-| Frontend documentation | `docs/FRONTEND.md` *(planned)* |
-
-**What you'll learn:** React Router, Material UI, Axios interceptors, JWT storage, form handling, API integration.
-
-**Interview focus:** SPA architecture, CORS, token refresh, component composition.
+Wire screens to the APIs you already trust. Frontend is easier when the backend contract is stable.
 
 ---
 
 ## Module 8 — Production Deployment
 
-**Status:** ⬜ Planned
-
-**Goal:** Harden Docker setup, add health checks, environment profiles, and deployment runbook.
-
-**Planned deliverables:**
-
-| Item | Location |
-|------|----------|
-| Production Dockerfiles | `docker/` |
-| Flyway integration in `pom.xml` | Automated migrations |
-| Health checks & Actuator | `/actuator/health` |
-| Production `application-prod.yml` | Environment profile |
-| Deployment documentation | `docs/DEPLOYMENT.md` *(planned)* |
-
-**What you'll learn:** Multi-stage Docker builds, secrets management, CI/CD basics, production config profiles.
-
-**Interview focus:** Container orchestration, 12-factor app, blue-green deployment, database migration in CI.
+Docker hardening, env profiles, health checks — ship what you built.
 
 ---
 
-## How Modules Connect
+## How the modules connect
 
 ```
-Module 1          Module 2           Module 3              Module 4
-Project Setup  →  Entities/Repos  →  Security / JWT   →  Guest CRUD APIs
-(skeleton)        (persistence)      (auth infrastructure)   (first domain API)
-                                                              │
-Module 8          Module 7           Module 6              Module 5
-Deployment     ←  React UI       ←  Booking Logic     ←  Room Management
-(Docker/CI)       (frontend)         (domain rules)        (inventory APIs)
+Module 1 → Module 2 → Module 3 → Module 4 → Module 5
+ Setup      Data       Security    Guests      Rooms
+                                      \        /
+                                       \      /
+                                     Module 6
+                                      Booking
+                                         |
+                                     Module 7
+                                       React
+                                         |
+                                     Module 8
+                                      Deploy
 ```
 
-Each module builds on the previous. Do not skip ahead — later modules assume earlier layers exist.
+---
+
+## Documentation map (what to read when)
+
+| When you want to… | Open |
+|-------------------|------|
+| Understand the learning order | This file (`MODULES.md`) |
+| See system layers | [ARCHITECTURE.md](ARCHITECTURE.md) |
+| Learn the database | [DATABASE.md](DATABASE.md) |
+| Learn JWT & security | [SECURITY.md](SECURITY.md) |
+| Learn Guest CRUD APIs | [GUESTS.md](GUESTS.md) |
+| Learn Room Management | [ROOMS.md](ROOMS.md) |
 
 ---
 
-## Documentation Map
+## Suggested weekly rhythm
 
-| Document | Scope |
-|----------|-------|
-| [README.md](../README.md) | Quick start, env vars, high-level overview |
-| [MODULES.md](MODULES.md) | This file — module index and progress |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | System architecture, package structure, design principles |
-| [DATABASE.md](DATABASE.md) | Module 2 — schema, ER diagram, migrations |
-| [SECURITY.md](SECURITY.md) | Module 3 — JWT, RBAC, auth tables |
-| [GUESTS.md](GUESTS.md) | Module 4 — Guest Management APIs |
-| `docs/ROOMS.md` | Module 5 — *(planned)* |
-| `docs/BOOKING.md` | Module 6 — *(planned)* |
-| `docs/FRONTEND.md` | Module 7 — *(planned)* |
-| `docs/DEPLOYMENT.md` | Module 8 — *(planned)* |
+| Day | Activity |
+|-----|----------|
+| 1 | Read module guide + open listed files |
+| 2 | Draw the flow on paper (request → DB → response) |
+| 3 | Do “Try this” tasks / break something and fix it |
+| 4 | Answer interview questions without looking |
+| 5 | Summarize the module in 10 lines in your own words |
 
 ---
 
-## Suggested Learning Path
-
-1. Read the **concepts section** in each module's chat/lesson before reviewing code.
-2. Explore the **deliverables** in the codebase for that module.
-3. Complete the **practice assignments** before moving on.
-4. Answer the **interview questions** — have them evaluated before the next module.
-5. Update this page's status as you progress *(or ask the agent to update it)*.
-
----
-
-*Last updated: Module 4 complete (Guest Management)*
+*Last updated: Module 5 complete — Room Management*

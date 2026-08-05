@@ -6,6 +6,8 @@ package com.hotelbooking.database;
 public enum RoomType {
     STANDARD,
     DELUXE,
+    EXECUTIVE,
     SUITE,
+    FAMILY,
     PRESIDENTIAL
 }
