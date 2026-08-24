@@ -1,10 +1,7 @@
 # =============================================================================
 # Backend — multi-stage production image (Java 21 / Spring Boot)
 #
-# Layer-cache strategy (Docker challenge):
-#   1) COPY only pom.xml  →  RUN dependency:go-offline
-#   2) COPY src           →  RUN package
-# Changing Java source does NOT invalidate the dependency download layer.
+# BuildKit cache mount keeps ~/.m2 across builds without a fragile go-offline layer.
 #
 # Build:  docker build -f docker/Dockerfile.backend -t hotel-booking-backend ./backend
 # Distroless variant: docker/Dockerfile.backend.distroless
@@ -14,14 +11,10 @@
 FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
 
-# --- Layer A: dependencies only (pom.xml) ---
 COPY pom.xml .
-# go-offline populates local .m2; layer reused until pom.xml changes
-RUN mvn -B -q -DskipTests dependency:go-offline dependency:resolve-plugins
-
-# --- Layer B: sources + package (invalidated on code change) ---
 COPY src ./src
-RUN mvn -B -DskipTests package \
+RUN --mount=type=cache,target=/root/.m2 \
+    mvn -B -DskipTests package \
  && mv target/*.jar /app/app.jar
 
 # ----- Stage 2: runtime (JRE Alpine — good default size/tools balance) -----
