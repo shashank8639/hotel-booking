@@ -104,6 +104,16 @@ import { paymentService } from '../services/paymentService';
 
 const theme = createTheme();
 
+function futureIso(daysFromToday) {
+  const d = new Date();
+  d.setHours(12, 0, 0, 0);
+  d.setDate(d.getDate() + daysFromToday);
+  return d.toISOString().slice(0, 10);
+}
+
+const sampleCheckIn = futureIso(10);
+const sampleCheckOut = futureIso(12);
+
 const sampleRoom = {
   id: 1,
   roomNumber: '101',
@@ -123,8 +133,8 @@ function renderWithWizard(ui, wizardProps = {}) {
             roomIds: [1],
             room: sampleRoom,
             rooms: [sampleRoom],
-            checkIn: '2026-08-10',
-            checkOut: '2026-08-12',
+            checkIn: sampleCheckIn,
+            checkOut: sampleCheckOut,
             guests: 2,
             availabilityOk: true,
             guest: {

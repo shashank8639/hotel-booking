@@ -6,7 +6,9 @@ import com.hotelbooking.database.RoomType;
 import com.hotelbooking.entity.Booking;
 import com.hotelbooking.entity.BookingRoom;
 import com.hotelbooking.entity.Guest;
+import com.hotelbooking.entity.Hotel;
 import com.hotelbooking.entity.Room;
+import com.hotelbooking.util.HotelTestSupport;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +35,26 @@ class BookingRepositoryTest {
     @Autowired
     private RoomRepository roomRepository;
 
+    @Autowired
+    private CountryRepository countryRepository;
+
+    @Autowired
+    private StateRepository stateRepository;
+
+    @Autowired
+    private CityRepository cityRepository;
+
+    @Autowired
+    private HotelRepository hotelRepository;
+
     private Guest guest;
     private Room room;
 
     @BeforeEach
     void setUp() {
+        Hotel hotel = HotelTestSupport.persistSampleHotel(
+                countryRepository, stateRepository, cityRepository, hotelRepository);
+
         guest = guestRepository.save(Guest.builder()
                 .firstName("Asha")
                 .lastName("Patel")
@@ -46,6 +63,7 @@ class BookingRepositoryTest {
                 .build());
 
         room = roomRepository.save(Room.builder()
+                .hotel(hotel)
                 .roomNumber("501")
                 .roomType(RoomType.DELUXE)
                 .capacity(2)

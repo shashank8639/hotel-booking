@@ -8,8 +8,10 @@ import com.hotelbooking.database.RoomType;
 import com.hotelbooking.entity.Booking;
 import com.hotelbooking.entity.BookingRoom;
 import com.hotelbooking.entity.Guest;
+import com.hotelbooking.entity.Hotel;
 import com.hotelbooking.entity.Payment;
 import com.hotelbooking.entity.Room;
+import com.hotelbooking.util.HotelTestSupport;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +47,23 @@ class ReportQueryRepositoryTest {
     @Autowired
     private PaymentRepository paymentRepository;
 
+    @Autowired
+    private CountryRepository countryRepository;
+
+    @Autowired
+    private StateRepository stateRepository;
+
+    @Autowired
+    private CityRepository cityRepository;
+
+    @Autowired
+    private HotelRepository hotelRepository;
+
     @BeforeEach
     void setUp() {
+        Hotel hotel = HotelTestSupport.persistSampleHotel(
+                countryRepository, stateRepository, cityRepository, hotelRepository);
+
         Guest guest = guestRepository.save(Guest.builder()
                 .firstName("Report")
                 .lastName("Guest")
@@ -54,6 +71,7 @@ class ReportQueryRepositoryTest {
                 .build());
 
         Room room = roomRepository.save(Room.builder()
+                .hotel(hotel)
                 .roomNumber("801")
                 .roomType(RoomType.DELUXE)
                 .capacity(2)

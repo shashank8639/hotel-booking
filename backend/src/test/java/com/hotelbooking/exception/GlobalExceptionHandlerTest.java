@@ -7,17 +7,15 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.core.MethodParameter;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
+import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
@@ -50,13 +48,12 @@ class GlobalExceptionHandlerTest {
     }
 
     @Test
-    void handleValidationErrors_includesFieldMap() {
-        BindingResult bindingResult = mock(BindingResult.class);
-        when(bindingResult.getFieldErrors()).thenReturn(List.of(
-                new FieldError("guestRequest", "email", "must not be blank")
-        ));
-        MethodArgumentNotValidException ex = mock(MethodArgumentNotValidException.class);
-        when(ex.getBindingResult()).thenReturn(bindingResult);
+    void handleValidationErrors_includesFieldMap() throws Exception {
+        BeanPropertyBindingResult bindingResult = new BeanPropertyBindingResult(new Object(), "guestRequest");
+        bindingResult.addError(new FieldError("guestRequest", "email", "must not be blank"));
+        MethodParameter parameter = new MethodParameter(
+                GlobalExceptionHandlerTest.class.getDeclaredMethod("validationProbe", String.class), 0);
+        MethodArgumentNotValidException ex = new MethodArgumentNotValidException(parameter, bindingResult);
 
         ResponseEntity<ErrorResponse> response = handler.handleValidationErrors(ex, request);
 
@@ -64,6 +61,11 @@ class GlobalExceptionHandlerTest {
         assertThat(response.getBody()).isNotNull();
         assertThat(response.getBody().validationErrors()).containsEntry("email", "must not be blank");
         assertThat(response.getBody().message()).isEqualTo("Validation failed");
+    }
+
+    @SuppressWarnings("unused")
+    private void validationProbe(String email) {
+        // method parameter target for MethodArgumentNotValidException
     }
 
     @Test

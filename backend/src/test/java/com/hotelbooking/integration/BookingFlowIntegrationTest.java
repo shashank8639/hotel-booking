@@ -7,12 +7,17 @@ import com.hotelbooking.dto.BookingRequest;
 import com.hotelbooking.dto.GuestRequest;
 import com.hotelbooking.entity.Room;
 import com.hotelbooking.entity.User;
+import com.hotelbooking.repository.CityRepository;
+import com.hotelbooking.repository.CountryRepository;
+import com.hotelbooking.repository.HotelRepository;
 import com.hotelbooking.repository.RoleRepository;
 import com.hotelbooking.repository.RoomRepository;
+import com.hotelbooking.repository.StateRepository;
 import com.hotelbooking.repository.UserRepository;
 import com.hotelbooking.security.JwtService;
 import com.hotelbooking.security.SecurityConstants;
 import com.hotelbooking.security.UserRole;
+import com.hotelbooking.util.HotelTestSupport;
 import com.hotelbooking.util.IntegrationTestSupport;
 import com.hotelbooking.util.MockMvcTestSupport;
 import com.hotelbooking.util.TestDataFactory;
@@ -61,6 +66,18 @@ class BookingFlowIntegrationTest {
     private RoomRepository roomRepository;
 
     @Autowired
+    private CountryRepository countryRepository;
+
+    @Autowired
+    private StateRepository stateRepository;
+
+    @Autowired
+    private CityRepository cityRepository;
+
+    @Autowired
+    private HotelRepository hotelRepository;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
@@ -83,8 +100,10 @@ class BookingFlowIntegrationTest {
         );
         bearer = IntegrationTestSupport.bearerAccessToken(jwtService, customer);
 
+        var hotel = HotelTestSupport.persistSampleHotel(
+                countryRepository, stateRepository, cityRepository, hotelRepository);
         room = roomRepository.save(TestDataFactory.availableRoom(
-                "501", RoomType.DELUXE, new BigDecimal("4500.00")));
+                "501", RoomType.DELUXE, new BigDecimal("4500.00"), hotel));
     }
 
     @Test
@@ -149,7 +168,7 @@ class BookingFlowIntegrationTest {
         GuestRequest guestRequest = GuestRequest.builder()
                 .firstName("Overlap")
                 .lastName("Guest")
-                .email("overlap@example.com")
+                .email("booker@example.com")
                 .phone("+91-9222222222")
                 .build();
 

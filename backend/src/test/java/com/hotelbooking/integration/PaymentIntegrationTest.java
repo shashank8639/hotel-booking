@@ -12,13 +12,18 @@ import com.hotelbooking.entity.Room;
 import com.hotelbooking.entity.User;
 import com.hotelbooking.payment.MockRazorpayGateway;
 import com.hotelbooking.repository.BookingRepository;
+import com.hotelbooking.repository.CityRepository;
+import com.hotelbooking.repository.CountryRepository;
 import com.hotelbooking.repository.GuestRepository;
+import com.hotelbooking.repository.HotelRepository;
 import com.hotelbooking.repository.RoleRepository;
 import com.hotelbooking.repository.RoomRepository;
+import com.hotelbooking.repository.StateRepository;
 import com.hotelbooking.repository.UserRepository;
 import com.hotelbooking.security.JwtService;
 import com.hotelbooking.security.SecurityConstants;
 import com.hotelbooking.security.UserRole;
+import com.hotelbooking.util.HotelTestSupport;
 import com.hotelbooking.util.IntegrationTestSupport;
 import com.hotelbooking.util.MockMvcTestSupport;
 import com.hotelbooking.util.TestDataFactory;
@@ -70,6 +75,18 @@ class PaymentIntegrationTest {
     private BookingRepository bookingRepository;
 
     @Autowired
+    private CountryRepository countryRepository;
+
+    @Autowired
+    private StateRepository stateRepository;
+
+    @Autowired
+    private CityRepository cityRepository;
+
+    @Autowired
+    private HotelRepository hotelRepository;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
@@ -97,9 +114,11 @@ class PaymentIntegrationTest {
         );
         bearer = IntegrationTestSupport.bearerAccessToken(jwtService, customer);
 
-        Guest guest = guestRepository.save(TestDataFactory.guest("payer.guest@example.com"));
+        Guest guest = guestRepository.save(TestDataFactory.guest("payer@example.com"));
+        var hotel = HotelTestSupport.persistSampleHotel(
+                countryRepository, stateRepository, cityRepository, hotelRepository);
         Room room = roomRepository.save(TestDataFactory.availableRoom(
-                "701", RoomType.SUITE, new BigDecimal("9000.00")));
+                "701", RoomType.SUITE, new BigDecimal("9000.00"), hotel));
 
         booking = TestDataFactory.pendingBooking(
                 guest,

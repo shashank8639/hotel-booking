@@ -9,6 +9,7 @@ import com.hotelbooking.dto.RoomImageResponse;
 import com.hotelbooking.dto.RoomPricingRequest;
 import com.hotelbooking.dto.RoomRequest;
 import com.hotelbooking.dto.RoomResponse;
+import com.hotelbooking.entity.Hotel;
 import com.hotelbooking.entity.Room;
 import com.hotelbooking.entity.RoomImage;
 import com.hotelbooking.exception.DuplicateRoomException;
@@ -17,9 +18,12 @@ import com.hotelbooking.exception.InvalidRoomStatusTransitionException;
 import com.hotelbooking.exception.RoomNotFoundException;
 import com.hotelbooking.mapper.RoomMapper;
 import com.hotelbooking.repository.BookingRepository;
+import com.hotelbooking.repository.HotelRepository;
 import com.hotelbooking.repository.RoomImageRepository;
 import com.hotelbooking.repository.RoomRepository;
 import com.hotelbooking.service.impl.RoomServiceImpl;
+import com.hotelbooking.util.HotelTestSupport;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -39,6 +43,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isNull;
+import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -58,8 +63,20 @@ class RoomServiceTest {
     @Mock
     private RoomMapper roomMapper;
 
+    @Mock
+    private HotelRepository hotelRepository;
+
     @InjectMocks
     private RoomServiceImpl roomService;
+
+    private Hotel hotel;
+
+    @BeforeEach
+    void setUp() {
+        hotel = HotelTestSupport.sampleHotel(1L);
+        lenient().when(hotelRepository.findBySlug(HotelTestSupport.DEFAULT_HOTEL_SLUG)).thenReturn(Optional.of(hotel));
+        lenient().when(hotelRepository.findById(1L)).thenReturn(Optional.of(hotel));
+    }
 
     @Test
     void createRoom_shouldRejectDuplicateRoomNumber() {
@@ -70,7 +87,7 @@ class RoomServiceTest {
                 .pricePerNight(new BigDecimal("2500"))
                 .build();
 
-        when(roomRepository.existsByRoomNumberAndDeletedFalse("101")).thenReturn(true);
+        when(roomRepository.existsByHotel_IdAndRoomNumberAndDeletedFalse(1L, "101")).thenReturn(true);
 
         assertThatThrownBy(() -> roomService.createRoom(request))
                 .isInstanceOf(DuplicateRoomException.class);
@@ -86,11 +103,11 @@ class RoomServiceTest {
                 .pricePerNight(new BigDecimal("2500"))
                 .build();
         Room entity = Room.builder().roomNumber("101").build();
-        Room saved = Room.builder().roomNumber("101").build();
+        Room saved = Room.builder().roomNumber("101").hotel(hotel).build();
         saved.setId(1L);
         RoomResponse response = RoomResponse.builder().id(1L).roomNumber("101").build();
 
-        when(roomRepository.existsByRoomNumberAndDeletedFalse("101")).thenReturn(false);
+        when(roomRepository.existsByHotel_IdAndRoomNumberAndDeletedFalse(1L, "101")).thenReturn(false);
         when(roomMapper.toEntity(request)).thenReturn(entity);
         when(roomRepository.save(entity)).thenReturn(saved);
         when(roomMapper.toResponse(saved)).thenReturn(response);
@@ -99,6 +116,7 @@ class RoomServiceTest {
 
         assertThat(result.getId()).isEqualTo(1L);
         verify(roomRepository).save(entity);
+        assertThat(entity.getHotel()).isEqualTo(hotel);
     }
 
     @Test

@@ -7,6 +7,7 @@ import com.hotelbooking.database.RoomStatus;
 import com.hotelbooking.database.RoomType;
 import com.hotelbooking.entity.Booking;
 import com.hotelbooking.entity.Guest;
+import com.hotelbooking.entity.Hotel;
 import com.hotelbooking.entity.Payment;
 import com.hotelbooking.entity.Role;
 import com.hotelbooking.entity.Room;
@@ -67,7 +68,12 @@ public final class TestDataFactory {
     }
 
     public static Room availableRoom(String roomNumber, RoomType type, BigDecimal price) {
+        return availableRoom(roomNumber, type, price, null);
+    }
+
+    public static Room availableRoom(String roomNumber, RoomType type, BigDecimal price, Hotel hotel) {
         return Room.builder()
+                .hotel(hotel)
                 .roomNumber(roomNumber)
                 .roomType(type)
                 .floorNumber(2)

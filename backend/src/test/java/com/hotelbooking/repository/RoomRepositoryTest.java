@@ -2,7 +2,9 @@ package com.hotelbooking.repository;
 
 import com.hotelbooking.database.RoomStatus;
 import com.hotelbooking.database.RoomType;
+import com.hotelbooking.entity.Hotel;
 import com.hotelbooking.entity.Room;
+import com.hotelbooking.util.HotelTestSupport;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +28,27 @@ class RoomRepositoryTest {
     @Autowired
     private RoomRepository roomRepository;
 
+    @Autowired
+    private CountryRepository countryRepository;
+
+    @Autowired
+    private StateRepository stateRepository;
+
+    @Autowired
+    private CityRepository cityRepository;
+
+    @Autowired
+    private HotelRepository hotelRepository;
+
+    private Hotel hotel;
+
     @BeforeEach
     void setUp() {
+        hotel = HotelTestSupport.persistSampleHotel(
+                countryRepository, stateRepository, cityRepository, hotelRepository);
+
         roomRepository.save(Room.builder()
+                .hotel(hotel)
                 .roomNumber("101")
                 .roomType(RoomType.STANDARD)
                 .floorNumber(1)
@@ -39,6 +59,7 @@ class RoomRepositoryTest {
                 .build());
 
         roomRepository.save(Room.builder()
+                .hotel(hotel)
                 .roomNumber("201")
                 .roomType(RoomType.DELUXE)
                 .floorNumber(2)
@@ -48,6 +69,7 @@ class RoomRepositoryTest {
                 .build());
 
         roomRepository.save(Room.builder()
+                .hotel(hotel)
                 .roomNumber("301")
                 .roomType(RoomType.SUITE)
                 .floorNumber(3)
@@ -105,6 +127,7 @@ class RoomRepositoryTest {
     @Test
     void discountedPriceAboveBase_shouldViolateCheckConstraint() {
         Room invalid = Room.builder()
+                .hotel(hotel)
                 .roomNumber("999")
                 .roomType(RoomType.STANDARD)
                 .capacity(2)

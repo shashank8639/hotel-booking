@@ -12,6 +12,7 @@ vi.mock('../services/hotelService', () => ({
   },
   cityService: {
     popular: vi.fn(),
+    list: vi.fn(),
   },
 }));
 
@@ -48,6 +49,9 @@ describe('LandingPage', () => {
       },
     ]);
     cityService.popular.mockResolvedValue([
+      { id: 1, name: 'Hyderabad', slug: 'hyderabad' },
+    ]);
+    cityService.list.mockResolvedValue([
       { id: 1, name: 'Hyderabad', slug: 'hyderabad' },
     ]);
   });
