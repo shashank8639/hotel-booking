@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 # =============================================================================
 # Backend — Distroless runtime (Docker challenge: smaller / no shell)
 #
@@ -16,9 +17,9 @@
 FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
 COPY pom.xml .
-RUN mvn -B -q -DskipTests dependency:go-offline dependency:resolve-plugins
 COPY src ./src
-RUN mvn -B -DskipTests package \
+RUN --mount=type=cache,target=/root/.m2 \
+    mvn -B -DskipTests package \
  && mv target/*.jar /app/app.jar
 
 # Official Distroless Java 21 (Debian-based, nonroot variant)
